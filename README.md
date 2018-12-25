@@ -39,6 +39,10 @@ android3.0之前，主要包括两种动画方式：**补间动画**（Tween Ani
 
 [Property Animation 属性动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_base/lib_property_anim/README_propertyAnim.md);
 
+高级动画：
+
+[Ripple Effect 触摸反馈动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_ripple_effect/README_Ripple_Effect.md);
+
 
 属性动画 翻译官方文档：https://www.jianshu.com/p/51f6576cf20e
 
