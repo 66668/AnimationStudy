@@ -8,10 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!--动画-style-->
-    <style name="popWindow_01">
-        <item name="android:windowEnterAnimation">@anim/style_popwindow_enter</item>
-        <item name="android:windowExitAnimation">@anim/style_popwindow_exit</item>
+    <style name="ripple_Button">
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button</item>
+        <item name="android:colorButtonNormal">@android:color/white</item>
+    </style>
+
+    <style name="ripple_Button_Borderless">
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
+        <item name="android:colorButtonNormal">@android:color/holo_green_dark</item>
+    </style>
+
+    <style name="ripple_Button_BorderlessColored">
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
+        <item name="android:colorButtonNormal">@android:color/darker_gray</item>
     </style>
 
 </resources>

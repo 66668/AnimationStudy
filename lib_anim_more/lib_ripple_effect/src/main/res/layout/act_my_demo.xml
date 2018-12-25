@@ -13,18 +13,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1.自定义样式演示：" />
+            android:text="1.自定义样式演示：TextView(也适用于Button)" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#111111" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="20dp"
-            android:text="1.1" />
 
 
         <TextView
@@ -43,38 +37,58 @@
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
+            android:background="@drawable/ripple_shape01"
+            android:clickable="true"
             android:gravity="center"
-            android:text="自定义无边界"
+            android:text="自定义-青色-有边界"
             android:textSize="10sp" />
 
         <TextView
-            android:id="@+id/view_puppet10"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/shape_bg_click_borderless"
+            android:id="@+id/tv_03"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ripple_shape02"
             android:clickable="true"
             android:gravity="center"
-            android:text="Background:custom ripple bg"
-            android:textColor="@android:color/black"/>
+            android:text="自定义-青色-边框"
+            android:textSize="10sp" />
+
 
         <TextView
-            android:id="@+id/view_puppet8"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/shape_bg_click"
+            android:id="@+id/tv_04"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ripple_shape03"
             android:clickable="true"
             android:gravity="center"
-            android:text="Background:custom ripple bg borderless"
-            android:textColor="@android:color/black"/>
+            android:text="自定义-蓝色-边框：方式1"
+            android:textSize="10sp" />
 
+
+        <TextView
+            android:id="@+id/tv_05"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ripple_shape03"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="自定义-蓝色-边框：：方式2"
+            android:textSize="10sp" />
+
+
+        <TextView
+            android:id="@+id/tv_06"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ripple_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="自定义-selector"
+            android:textSize="10sp" />
 
 
     </LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#f7e307">
+    <!--添加item以后会约束水波纹的范围-->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp" />
+            <solid android:color="#5a949e" />
+            <stroke android:color="#999999" />
+        </shape>
+    </item>
+</ripple>
