@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1.自定义样式演示：" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#111111" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:text="1.1" />
+
+
+        <TextView
+            android:id="@+id/tv_01"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ripple_color01"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="自定义无边界-红色"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_02"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="自定义无边界"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/view_puppet10"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_bg_click_borderless"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Background:custom ripple bg"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/view_puppet8"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_bg_click"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Background:custom ripple bg borderless"
+            android:textColor="@android:color/black"/>
+
+
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--5.0以下的老版本，没有ripple效果，用该代码代替-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:drawable="@android:color/holo_green_dark" android:state_pressed="false"/>
+<item android:drawable="@android:color/holo_orange_light" android:state_pressed="true"/>
+<item android:drawable="@android:color/black"/>
+</selector>

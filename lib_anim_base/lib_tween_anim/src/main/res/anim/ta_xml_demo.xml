@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--xmldemo1:-->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <alpha
+        android:duration="3000"
+        android:fillAfter="true"
+        android:fillBefore="true"
+        android:fromAlpha="0.5"
+        android:repeatCount="1"
+        android:repeatMode="reverse"
+        android:startOffset="1000"
+        android:toAlpha="1"
+        android:zAdjustment="top" />
+
+    <rotate
+        android:duration="3000"
+        android:fillAfter="true"
+        android:fillBefore="true"
+        android:fromDegrees="0"
+        android:pivotX="0%"
+        android:pivotY="0%"
+        android:repeatCount="1"
+        android:repeatMode="restart"
+        android:startOffset="1000"
+        android:toDegrees="360"
+        android:zAdjustment="top" />
+
+    <scale
+        android:duration="3000"
+        android:fillBefore="true"
+        android:fillEnabled="true"
+        android:fromXScale="1.0"
+        android:fromYScale="1.0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:repeatCount="2"
+        android:repeatMode="reverse"
+        android:startOffset="800"
+        android:toXScale="2.0"
+        android:toYScale="1.5"
+        android:zAdjustment="top" />
+
+    <translate
+        android:duration="3000"
+        android:fillAfter="true"
+        android:fillBefore="true"
+        android:fromXDelta="0"
+        android:fromYDelta="0"
+        android:repeatCount="1"
+        android:repeatMode="reverse"
+        android:startOffset="150"
+        android:toXDelta="200"
+        android:toYDelta="100"
+        android:zAdjustment="top" />
+
+    <set
+        android:interpolator="@android:anim/bounce_interpolator"
+        android:shareInterpolator="true"
+        android:startOffset="3000">
+        <scale
+            android:duration="2000"
+            android:fillAfter="true"
+            android:fillBefore="false"
+            android:fromXScale="1.0"
+            android:fromYScale="1.0"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:repeatCount="2"
+            android:repeatMode="reverse"
+            android:toXScale="2.0"
+            android:toYScale="2.0" />
+        <translate
+            android:duration="2000"
+            android:fillAfter="true"
+            android:fillBefore="false"
+            android:fromXDelta="0"
+            android:fromYDelta="0"
+            android:repeatCount="2"
+            android:repeatMode="reverse"
+            android:toXDelta="200%"
+            android:toYDelta="200%" />
+    </set>
+</set>

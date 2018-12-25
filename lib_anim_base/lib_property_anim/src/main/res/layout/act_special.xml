@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?><!--属性动画独有动画实现-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/scrollView"
+        android:layout_alignParentTop="true"
+        android:background="#55799c">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/money" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="属性动画代替补间动画的示例" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="ObjectAnimator xml简单示例" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_valueAnim_trans_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="左右移动+监听"
+                    android:textAllCaps="false"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_rotate_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="顺旋转+监听"
+                    android:textAllCaps="false"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_scale_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="放大+监听"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_alpha_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="实体->透明+监听"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_all_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="综合+监听"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_valueAnim_trans"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="上下移动+监听"
+                    android:textAllCaps="false"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_rotate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="逆旋转+监听"
+                    android:textAllCaps="false"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_scale"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="缩小+监听"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_alpha"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="透明->实体+监听"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_all"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="综合+监听"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="ObjectAnimator+OfFloat code简单示例" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_valueAnim_trans_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="左右移动+监听"
+                    android:textAllCaps="false"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_rotate_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="顺旋转+监听"
+                    android:textAllCaps="false"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_scale_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="放大+监听"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_alpha_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="透明+监听"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_all_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="综合+监听"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:weightSum="4">
+
+                <Button
+                    android:id="@+id/btn_valueAnim_trans_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="上下移动+监听"
+                    android:textAllCaps="false"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_rotate_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="逆旋转+监听"
+                    android:textAllCaps="false"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_scale_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="缩小+监听"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_all_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="综合+监听"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="ObjectAnimator+PropertyValuesHolder code简单示例" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_valueAnim_trans_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="移动+监听"
+                    android:textAllCaps="false"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_rotate_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="旋转+监听"
+                    android:textAllCaps="false"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_scale_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="缩放+监听"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_alpha_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="透明+监听"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btn_valueAnim_all_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="综合+监听"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

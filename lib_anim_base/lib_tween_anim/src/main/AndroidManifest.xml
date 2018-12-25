@@ -1,0 +1,19 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sjy.tweenanim">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".TAMainAct" />
+        <activity android:name=".TAxmlAct" />
+        <activity android:name=".TAcodeAct" />
+        <activity android:name=".TAInterpolatorxmlAct" />
+        <activity android:name=".TAInterpolatorCodeAct" />
+        <activity android:name=".TAMyInterpolatorAct" />
+        <activity android:name=".TAControllerAct" />
+        <activity android:name=".TAStyleAct" />
+        <activity android:name=".TAMyControllerAct" />
+    </application>
+</manifest>

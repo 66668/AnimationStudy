@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--动画-style-->
+    <style name="popWindow_01">
+        <item name="android:windowEnterAnimation">@anim/style_popwindow_enter</item>
+        <item name="android:windowExitAnimation">@anim/style_popwindow_exit</item>
+    </style>
+
+</resources>

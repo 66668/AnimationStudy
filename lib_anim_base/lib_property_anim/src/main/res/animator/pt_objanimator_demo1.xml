@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:propertyName=""
+    android:duration="100"
+    android:repeatCount="1"
+    android:repeatMode="reverse"
+    android:startOffset="100"
+    android:valueFrom="100%p"
+    android:valueTo="0"
+    android:valueType="colorType"
+    android:interpolator="@android:anim/bounce_interpolator"
+    android:pathData=""
+    android:propertyXName="">
+
+
+</objectAnimator>

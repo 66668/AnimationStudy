@@ -1,0 +1,7 @@
+include ':app',
+        ':lib_base',
+        'lib_anim_more:lib_ripple_effect',
+        ':lib_anim_base:lib_tween_anim',
+        ':lib_anim_base:lib_frame_anim',
+        ':lib_anim_base:lib_property_anim'
+

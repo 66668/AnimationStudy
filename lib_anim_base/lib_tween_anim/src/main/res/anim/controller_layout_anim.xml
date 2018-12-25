@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!--本处的动画和插值器都是使用的自定义方式，可以使用系统的
+android:animation="@anim/style_popwindow_enter"
+android:interpolator="@anim/my_overshoot_interpolator"
+-->
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animation="@anim/style_popwindow_enter"
+    android:animationOrder="normal"
+    android:delay="0.2"
+    android:interpolator="@android:anim/bounce_interpolator" />

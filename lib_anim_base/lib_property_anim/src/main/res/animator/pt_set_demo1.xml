@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="sequentially">
+    <!--变化-->
+    <set android:ordering="together">
+        <objectAnimator
+            android:duration="2000"
+            android:propertyName="rotation"
+            android:valueFrom="0"
+            android:valueTo="360"
+            android:valueType="floatType" />
+        <objectAnimator
+            android:duration="2000"
+            android:propertyName="scaleX"
+            android:valueFrom="1"
+            android:valueTo="2" />
+        <objectAnimator
+            android:duration="2000"
+            android:propertyName="scaleY"
+            android:valueFrom="1"
+            android:valueTo="2" />
+        <objectAnimator
+            android:duration="2000"
+            android:propertyName="translationY"
+            android:valueFrom="0"
+            android:valueTo="250" />
+        <objectAnimator
+            android:duration="2000"
+            android:valueFrom="1"
+            android:valueTo="0.2"
+            android:propertyName="alpha"
+            android:valueType="floatType" />
+    </set>
+<!--还原-->
+    <set android:ordering="together">
+        <objectAnimator
+            android:duration="2000"
+            android:propertyName="rotation"
+            android:valueFrom="360"
+            android:valueTo="0" />
+        <objectAnimator
+            android:duration="2000"
+            android:propertyName="translationY"
+            android:valueFrom="250"
+            android:valueTo="0" />
+        <objectAnimator
+            android:duration="2000"
+            android:propertyName="scaleX"
+            android:valueFrom="2"
+            android:valueTo="1" />
+        <objectAnimator
+            android:duration="2000"
+            android:propertyName="scaleY"
+            android:valueFrom="2"
+            android:valueTo="1" />
+        <objectAnimator
+            android:duration="2000"
+            android:valueFrom="0.2"
+            android:valueTo="1"
+            android:propertyName="alpha"
+            android:valueType="floatType" />
+    </set>
+</set>

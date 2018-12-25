@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--5.0以上的代码，可以使用该代码，显示水波纹效果-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#de0a14"
+    android:radius="300dp">
+</ripple>

@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/ly_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ly_2"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:background="#edafaf">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@android:color/holo_green_light"
+            android:src="@mipmap/earth" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/ly_2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AccelerateDecelerateInterpolator:中间加速，两头减速效果" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_translate_interpolator_a_d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="平移" />
+
+                <Button
+                    android:id="@+id/btn_rotate_interpolator_a_d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="旋转" />
+
+                <Button
+                    android:id="@+id/btn_scale_interpolator_a_d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="缩放" />
+
+                <Button
+                    android:id="@+id/btn_alpha_interpolator_a_d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="透明" />
+
+                <Button
+                    android:id="@+id/btn_interpolator_a_d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="综合效果" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AccelerateInterpolator:加速" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_translate_interpolator_a"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="平移" />
+
+                <Button
+                    android:id="@+id/btn_rotate_interpolator_a"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="旋转" />
+
+                <Button
+                    android:id="@+id/btn_scale_interpolator_a"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="缩放" />
+
+                <Button
+                    android:id="@+id/btn_alpha_interpolator_a"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="透明" />
+
+                <Button
+                    android:id="@+id/btn_interpolator_a"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="综合效果" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AnticipateInterpolator:开始的时候向后然后向前甩" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_translate_interpolator_ant"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="平移" />
+
+                <Button
+                    android:id="@+id/btn_rotate_interpolator_ant"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="旋转" />
+
+                <Button
+                    android:id="@+id/btn_scale_interpolator_ant"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="缩放" />
+
+                <Button
+                    android:id="@+id/btn_alpha_interpolator_ant"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="透明" />
+
+                <Button
+                    android:id="@+id/btn_interpolator_ant"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="综合效果" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AnticipateOvershootInterpolator:开始的时候向后然后向前甩一定值后返回最后的值" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_translate_interpolator_ant_o"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="平移" />
+
+                <Button
+                    android:id="@+id/btn_rotate_interpolator_ant_o"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="旋转" />
+
+                <Button
+                    android:id="@+id/btn_scale_interpolator_ant_o"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="缩放" />
+
+                <Button
+                    android:id="@+id/btn_alpha_interpolator_ant_o"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="透明" />
+
+                <Button
+                    android:id="@+id/btn_interpolator_ant_o"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="综合效果" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CycleInterpolator:动画循环播放特定的次数，速率改变沿着正弦曲线" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_translate_interpolator_c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="平移" />
+
+                <Button
+                    android:id="@+id/btn_rotate_interpolator_c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="旋转" />
+
+                <Button
+                    android:id="@+id/btn_scale_interpolator_c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="缩放" />
+
+                <Button
+                    android:id="@+id/btn_alpha_interpolator_c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="透明" />
+
+                <Button
+                    android:id="@+id/btn_interpolator_c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="综合效果" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BounceInterpolator:动画结束的时候弹起" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_translate_interpolator_b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="平移" />
+
+                <Button
+                    android:id="@+id/btn_rotate_interpolator_b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="旋转" />
+
+                <Button
+                    android:id="@+id/btn_scale_interpolator_b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="缩放" />
+
+                <Button
+                    android:id="@+id/btn_alpha_interpolator_b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="透明" />
+
+                <Button
+                    android:id="@+id/btn_interpolator_b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="综合效果" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DecelerateInterpolator:减速" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_translate_interpolator_d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="平移" />
+
+                <Button
+                    android:id="@+id/btn_rotate_interpolator_d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="旋转" />
+
+                <Button
+                    android:id="@+id/btn_scale_interpolator_d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="缩放" />
+
+                <Button
+                    android:id="@+id/btn_alpha_interpolator_d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="透明" />
+
+                <Button
+                    android:id="@+id/btn_interpolator_d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="综合效果" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LinearInterpolator:匀速/线性" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_translate_interpolator_l"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="平移" />
+
+                <Button
+                    android:id="@+id/btn_rotate_interpolator_l"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="旋转" />
+
+                <Button
+                    android:id="@+id/btn_scale_interpolator_l"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="缩放" />
+
+                <Button
+                    android:id="@+id/btn_alpha_interpolator_l"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="透明" />
+
+                <Button
+                    android:id="@+id/btn_interpolator_l"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="综合效果" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="OvershootInterpolator:向前甩一定值后再回到原来位置" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/btn_translate_interpolator_o"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="平移" />
+
+                <Button
+                    android:id="@+id/btn_rotate_interpolator_o"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="旋转" />
+
+                <Button
+                    android:id="@+id/btn_scale_interpolator_o"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="缩放" />
+
+                <Button
+                    android:id="@+id/btn_alpha_interpolator_o"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="透明" />
+
+                <Button
+                    android:id="@+id/btn_interpolator_o"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="综合效果" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
