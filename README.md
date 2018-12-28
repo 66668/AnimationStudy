@@ -46,7 +46,6 @@ android3.0之前，主要包括两种动画方式：**补间动画**（Tween Ani
 
 属性动画 翻译官方文档：https://www.jianshu.com/p/51f6576cf20e
 
-http://hukai.me/android-training-course-in-chinese/animations/zoom.html
 
 开源动画：
 https://github.com/ybq/Android-SpinKit

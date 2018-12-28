@@ -200,10 +200,25 @@ ripple_shape02.xml：
         <item android:drawable="@drawable/shape03" />
     </ripple>
 最后控件引用即可  
+### 2.4 自定义颜色+设置边界+有边框的selector
 
-## 3 Button的Ripple
+ripple_selector.xml:
+    
+    <?xml version="1.0" encoding="utf-8"?>
+    <ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="#ef0aae">
+        <item>
+            <selector>
+                <item
+                    android:drawable="@drawable/shape03"
+                    android:state_pressed="true"></item>
+                <item
+                    android:drawable="@drawable/shape04"
+                    android:state_pressed="false"></item>
+            </selector>
+        </item>
+    </ripple>
+ 里头的shape03.xml和shape04.xml就是2.3的样式，最后引用即可
+ 
+ 
 
-Button 在 v21 以上默认情况下是自带有 ripple 效果和点击Z轴抬高的阴影效果（会在视图状态动画中详解）的。
-但是如果你给 Button 设置了背景图，上面自带的默认点击效果都会失去。这时如果想保持点击效果有下面几种方式:  
-
-### 3.1 设置在sytle中
