@@ -14,6 +14,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import lib.base.sjy.adpater.MainAdapter;
+import lib.circular.reveal.CRMainAct;
 import lib.property.anim.MainAct;
 import lib.ripple.effect.REMainActivity;
 import lib.sjy.frame.FrameAnimActivity;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         data.add("02-Frame/Drawable Animation（帧动画）");
         data.add("03-Propety(属性动画)");
         data.add("04-触摸反馈动画（Ripple Effect）");
-//        data.add("05-揭露动画（Reveal Effect）");
+        data.add("05-揭露动画（Reveal Effect）");
 //        data.add("06-转场动画 & 共享元素（Activity 切换动画）");
 //        data.add("07-视图状态动画（Animate View State Changes）");
 //        data.add("08-矢量图动画（Vector 动画）");
@@ -79,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
                         startToRippleEffect();
                         break;
                     case 4:
+                        startToReveal();
+                        break;
                     case 5:
                     case 6:
                     case 7:
@@ -104,8 +107,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, MainAct.class);
         startActivity(intent);
     }
+
     private void startToRippleEffect() {
         Intent intent = new Intent(MainActivity.this, REMainActivity.class);
+        startActivity(intent);
+    }
+
+    private void startToReveal() {
+        Intent intent = new Intent(MainActivity.this, CRMainAct.class);
         startActivity(intent);
     }
 }

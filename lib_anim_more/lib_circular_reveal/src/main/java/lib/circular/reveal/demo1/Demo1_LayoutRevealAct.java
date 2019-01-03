@@ -1,12 +1,14 @@
-package lib.circular.reveal;
+package lib.circular.reveal.demo1;
 
-import android.content.Intent;
+import android.animation.Animator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.animation.Animation;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -15,10 +17,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import lib.base.sjy.adpater.MainAdapter;
-import lib.circular.reveal.demo1.Demo1_AppbarRevealAct;
+import lib.circular.reveal.R;
+import lib.circular.reveal.R2;
 
 
-public class CRMainAct extends AppCompatActivity {
+public class Demo1_LayoutRevealAct extends AppCompatActivity {
 
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
@@ -28,6 +31,7 @@ public class CRMainAct extends AppCompatActivity {
     //-------------------------------------------------------------
     private List<String> data = new ArrayList<>();
     private MainAdapter adapter;
+    ViewAnimationUtils viewAnimationUtils;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,7 +44,7 @@ public class CRMainAct extends AppCompatActivity {
     private void initView() {
         data = new ArrayList<>();
         //
-        data.add("topbar图片切换");
+        data.add("xml方式1：正常控件");
 
         //
         adapter = new MainAdapter(this);
@@ -57,7 +61,7 @@ public class CRMainAct extends AppCompatActivity {
             public void onItemClick(String str, int pos) {
                 switch (pos) {
                     case 0:
-                        startToAppbar();
+                        startToVAxmlAct();
                         break;
                     case 1:
                         break;
@@ -74,7 +78,7 @@ public class CRMainAct extends AppCompatActivity {
                     case 7:
                         break;
                     case 8:
-                        Toast.makeText(CRMainAct.this, str + pos, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Demo1_LayoutRevealAct.this, str + pos, Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
@@ -82,10 +86,11 @@ public class CRMainAct extends AppCompatActivity {
     }
 
     //
-    private void startToAppbar() {
-        Intent intent = new Intent(CRMainAct.this, Demo1_AppbarRevealAct.class);
-        startActivity(intent);
+    private void startToVAxmlAct() {
+//        Intent intent = new Intent(CRMainAct.this, TAxmlAct.class);
+//        startActivity(intent);
     }
+
 
 
 }
