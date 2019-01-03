@@ -43,7 +43,9 @@ ViewAnimationUtils.createCircularReveal(View view,int centerX,  int centerY, flo
 1. 参数1 View view：           执行揭露动画的 View 视图
 2. 参数2 int centerX：         相对于视图 View 的坐标系，动画圆的中心的x坐标
 3. 参数3 int centerY：         相对于视图 View 的坐标系，动画圆的中心的y坐标
-4. 参数3 float startRadius：   动画圆的起始半径
-4. 参数3 float endRadius：     动画圆的结束半径
+4. 参数4 float startRadius：   动画圆的起始半径
+4. 参数5 float endRadius：     动画圆的结束半径
 
 ![circular reveal 动画](https://github.com/66668/AnimationStudy/blob/master/interpolator_pic/createCircularReveal.jpg)
+
+### 简单使用示例：
