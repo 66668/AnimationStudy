@@ -33,15 +33,17 @@ android3.0之前，主要包括两种动画方式：**补间动画**（Tween Ani
 
 **如上只是简介，具体讲解及示例请跳转：**
 
-[Tween Animation 补间动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_base/lib_tween_anim/README_tweenAnim.md);
+1. [Tween Animation 补间动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_base/lib_tween_anim/README_tweenAnim.md);
 
-[Frame Animation 帧动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_base/lib_frame_anim/README_frameAnim.md);
+2. [Frame Animation 帧动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_base/lib_frame_anim/README_frameAnim.md);
 
-[Property Animation 属性动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_base/lib_property_anim/README_propertyAnim.md);
+3. [Property Animation 属性动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_base/lib_property_anim/README_propertyAnim.md);
 
 高级动画：
 
-[Ripple Effect 触摸反馈动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_ripple_effect/README_Ripple_Effect.md);
+4. [Ripple Effect 触摸反馈动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_ripple_effect/README_Ripple_Effect.md);
+
+5. [Circular Reveal 循环揭露动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_circular_reveal/README_Circular_Reveal.md);
 
 
 属性动画 翻译官方文档：https://www.jianshu.com/p/51f6576cf20e

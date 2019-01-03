@@ -221,4 +221,9 @@ ripple_selector.xml:
  里头的shape03.xml和shape04.xml就是2.3的样式，最后引用即可
  
  
+ ## 3.选择框的Ripple效果
+ 
+ https://www.2cto.com/kf/201410/346953.html
+ 
+ 
 

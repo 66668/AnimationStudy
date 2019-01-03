@@ -1,4 +1,4 @@
-# Tween Animation 很全的讲解和示例
+# Tween Animation (补间动画) 很全的讲解和示例
 本例将详解android.view.animation包下的所有内容。
 # 一 介绍
 Tween Animation对应的五个操作类是AlphaAnimation，RotateAnimation，ScaleAnimation，TranslateAnimation，AnimationSet，
