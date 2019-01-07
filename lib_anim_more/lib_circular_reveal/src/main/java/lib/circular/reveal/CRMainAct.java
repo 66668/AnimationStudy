@@ -40,7 +40,7 @@ public class CRMainAct extends AppCompatActivity {
     private void initView() {
         data = new ArrayList<>();
         //
-        data.add("topbar图片切换");
+        data.add("AppBarLayout切换界面");
 
         //
         adapter = new MainAdapter(this);

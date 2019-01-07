@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         data = new ArrayList<>();
         //
-        data.add("01-Tween Animation(补间动画)");
-        data.add("02-Frame/Drawable Animation（帧动画）");
-        data.add("03-Propety(属性动画)");
+        data.add("01-补间动画(Tween Animation)");
+        data.add("02-帧动画（Frame/Drawable Animation）");
+        data.add("03-属性动画(Propety Animation)");
         data.add("04-触摸反馈动画（Ripple Effect）");
         data.add("05-揭露动画（Reveal Effect）");
 //        data.add("06-转场动画 & 共享元素（Activity 切换动画）");
