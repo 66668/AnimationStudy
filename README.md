@@ -9,12 +9,12 @@ android3.0之前，主要包括两种动画方式：**补间动画**（Tween Ani
 针对视图动画存在的不足，3.0之后google增加了**属性动画**（Property Animation）。之后动画就被分成了**View Animation** 和**Property Animation**。
 
 紧接着，5.0之后，为用户与app交互反馈他们的动作行为和提供了视觉上的连贯性，Material Design又补充了许多过渡动画：
-1. Touch feedback  触摸反馈
-2. Circular Reveal  圆形展示
-3. Curved motion       曲线运动
-4. View state changes  视图状态变化
-5. Vector Drawables 矢量图动画
-6. Activity transitions  活动转场
+1. **Ripple Effect 触摸反馈(Touch feedback)**
+2. **Circular Reveal  圆形展示**
+3. **Curved motion       曲线运动**
+4. **View state changes  视图状态变化**
+5. **Vector Drawables 矢量图动画**
+6. **Activity transitions  活动转场**
 
 所以分类时,以最小的功能块划分为：
 
