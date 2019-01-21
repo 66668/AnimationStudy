@@ -10,7 +10,10 @@
         <activity
             android:name=".demo1.Demo1_AppbarRevealAct"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".demo1.Demo1_LayoutRevealAct" />
+
+        <activity
+            android:name=".demo1.Demo1_LayoutRevealAct"
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 

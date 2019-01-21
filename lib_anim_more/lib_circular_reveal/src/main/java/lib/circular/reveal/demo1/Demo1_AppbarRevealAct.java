@@ -44,7 +44,7 @@ public class Demo1_AppbarRevealAct extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act1_main);
+        setContentView(R.layout.act_appbar_demo1);
         ButterKnife.bind(this);
         initView();
     }

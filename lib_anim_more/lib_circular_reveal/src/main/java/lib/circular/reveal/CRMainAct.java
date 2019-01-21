@@ -16,6 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import lib.base.sjy.adpater.MainAdapter;
 import lib.circular.reveal.demo1.Demo1_AppbarRevealAct;
+import lib.circular.reveal.demo1.Demo1_LayoutRevealAct;
 
 
 public class CRMainAct extends AppCompatActivity {
@@ -40,7 +41,8 @@ public class CRMainAct extends AppCompatActivity {
     private void initView() {
         data = new ArrayList<>();
         //
-        data.add("AppBarLayout切换界面");
+        data.add("Layout的某一个view切换");
+        data.add("Layout切换");
 
         //
         adapter = new MainAdapter(this);
@@ -60,6 +62,7 @@ public class CRMainAct extends AppCompatActivity {
                         startToAppbar();
                         break;
                     case 1:
+                        startToLayout();
                         break;
                     case 2:
                         break;
@@ -84,6 +87,12 @@ public class CRMainAct extends AppCompatActivity {
     //
     private void startToAppbar() {
         Intent intent = new Intent(CRMainAct.this, Demo1_AppbarRevealAct.class);
+        startActivity(intent);
+    }
+
+    //
+    private void startToLayout() {
+        Intent intent = new Intent(CRMainAct.this, Demo1_LayoutRevealAct.class);
         startActivity(intent);
     }
 
