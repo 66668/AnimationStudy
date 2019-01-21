@@ -8,8 +8,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainAct" />
         <activity android:name=".PtBaseDemoAct" />
-        <activity android:name=".PtSpecialMainAct" />
-        <activity android:name=".Demo3Act" />
+        <activity android:name=".PtSpDemo1Act" />
+        <activity android:name=".InterpolatorAct" />
 
     </application>
 </manifest>

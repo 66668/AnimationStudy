@@ -1,229 +1,253 @@
-# Ripple Effect/触摸反馈动画
+# View State Changes 视图状态动画
+说明：本质还是属性动画，替换传统的selector的方式，主要是作用于点击按钮等的状态的变换。
 
-简介：android 5.0（API21+）在button上，自动添加了触摸反馈动画，效果水波纹效果，是有边界动画，当水波纹动画完成，View 恢复到初始状态。
-该处没有值得详解的地方，很简单，直接上代码讲解
+这块代码不多，可以直接看代码，然后看执行效果，不过在介绍前，先补充必要知识
 
+## View的各种状态介绍
 
-## 1.使用系统样式
+| State | 英文说明 |中文说明|
+| :------- | ------ |  ------ | 
+| **android:constantSize** | If true, the drawable's reported internal size will remain constant as the state changes; the size is the maximum of all of the states. |是否保持尺寸 |
+|**android:state_activated** | State value for StateListDrawable, set when a view or its parent has been "activated" meaning the user has currently marked it as being of interest. |StateListDrawable的状态值，| 
+| **android:state_active** | State value for StateListDrawable. |StateListDrawable的状态值 |
+| **android:state_checkable** | State identifier indicating that the object may display a check mark. |选中标记 |
+| **android:state_checked** | State identifier indicating that the object is currently checked. |当前对象是否已选中 |
+| **android:state_enabled** | State value for StateListDrawable, set when a view is enabled. |StateListDrawable的状态值 ,view是否可用 |
+| **android:state_first** | State value for StateListDrawable. | StateListDrawable的状态值|
+| **android:state_focused** | State value for StateListDrawable, set when a view has input focus. | 输入焦点|
+| **android:state_last** | State value for StateListDrawable. | StateListDrawable的状态值|
+| **android:state_middle** | State value for StateListDrawable. |StateListDrawable的状态值 |
+| **android:state_pressed** | State value for StateListDrawable, set when the user is pressing down in a view. | 用户是否压下view|
+| **android:state_selected** | State value for StateListDrawable, set when a view (or one of its parents) is currently selected. |views中的一个是否选中| 
+| **android:state_single** | State value for StateListDrawable. |StateListDrawable的状态值  |
+| **android:state_window_focused** | State value for StateListDrawable, set when a view's window has input focus. | view的window有输入焦点|
+| **android:variablePadding** | If true, allows the drawable's padding to change based on the current state that is selected. | true，可变padding尺寸|
+| **android:visible** | Indicates whether the drawable should be initially visible.| 是否可见|
 
-### 1.1 code方式实现
-说明：使用测试发现，使用该方式后，xml设置的自定义background会消失，即无法添加自定义的background样式
+> 小提示(关于在 selector 中设置不同状态的 item 时匹配原则的一个细节):
+> 如果有多个item，那么程序将自动从上到下进行匹配，最先匹配的将得到应用。
+> 如果一个item没有任何的状态说明，那么它将可以被任何一个状态匹配。
 
-         /**
-         * （1）有边界
-         */
-        private void setSystemBoard(View view) {
-            int[] attrs = new int[]{R.attr.selectableItemBackground};
-            TypedArray typedArray = obtainStyledAttributes(attrs);
-            int backgroundResource = typedArray.getResourceId(0, 0);
-            view.setBackgroundResource(backgroundResource);
-        }
-        
-    
-        /**
-         * （2）无边界
-         */
-        private void setSystemBoardless(View view) {
-            int[] attrs = new int[]{R.attr.selectableItemBackgroundBorderless};
-            TypedArray typedArray = obtainStyledAttributes(attrs);
-            int backgroundResource = typedArray.getResourceId(0, 0);
-            view.setBackgroundResource(backgroundResource);
-        }
-    
-### 1.2 xml布局方式：
+## 使用步骤介绍
 
-说明：可以使用 **android:background=""** 或 **android:foreground=""** （如果背景background被占用， 设置到foreground属性中）
-属性值为：**?android:attr/selectableItemBackground** 或 **?android:attr/selectableItemBackgroundBorderless**，
-**但是必不可少的是添加android:clickable="true"属性，否则不显示效果**
-当将系统Ripple Effect样式添加在foreground中，background使用自定义样式时，效果很好。
+### 1 xml方式调用
+如下两步骤即可使用xml样式：
 
-代码演示如下，具体请参考demo
+1. 在 res/animator下，创建 根标签为`<selector>`的xml文件
+2. 在布局中xml中调用该xml，调用属性为： android:stateListAnimator="@animator/xxx"
 
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:gravity="center"
-            android:text="foreground:有边界TextView"
-            android:textSize="10sp" />
+示例：
 
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:background="?android:attr/selectableItemBackground"
-            android:gravity="center"
-            android:text="background:有边界TextView"
-            android:textSize="10sp" />
-    
-        <TextView
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:text="foreground:无边界TextView"
-                android:textSize="10sp" />
-    
-        <TextView
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:clickable="true"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:text="background:无边界TextView"
-                android:textSize="10sp" />
-
- ## 2.使用自定义样式-<ripple>标签详解
- 
- 如果使用自定义样式，则依赖标签`<ripple>`，该标签内，有两个属性：**android:color=""和android:radius=""**，radius属性可以不加。
- 
- 为了适配android5.0以下的效果，需要在res/drawable和drawable-v21两个包下，创建相同的xml,在drawable下的xml，为5.0以下的适配，
- drawable-v21的xml，则为5.0,6.0以上的适配，**推荐所有待ripple的效果都在drawable-v21包下**,
- 绑定控件时，一定要添加属性**android:clickable="true"**
- 以2.1讲解为例，
- ### 2.1 自定义颜色（无边界）
-1.在drawable-v21创建 ripple_color01.xml:
+（1）res/animator下创建 view_state_change_01.xml：
     
     <?xml version="1.0" encoding="utf-8"?>
-    <!--5.0以上的代码，可以使用该代码，显示水波纹效果-->
-    <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="#0520ec"
-        android:radius="300dp">
-    </ripple>
- 
-2.绑定到控件上：
-    
-        <TextView
-            android:id="@+id/tv_01"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ripple_color01"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="自定义无边界"
-            android:textSize="10sp" />   
-
- 
-3.补充：适配5.0以下的样式，需要在drawable包下定义相同xml,ripple_color01.xml：
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <!--5.0以下的老版本，没有ripple效果，用该代码代替-->
     <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@android:color/holo_green_dark" android:state_pressed="false"/>
-    <item android:drawable="@android:color/holo_orange_light" android:state_pressed="true"/>
-    <item android:drawable="@android:color/black"/>
+        <item android:state_pressed="true">
+            <set>
+                <objectAnimator
+                    android:duration="@android:integer/config_shortAnimTime"
+                    android:propertyName="translationZ"
+                    android:valueTo="5dp"
+                    android:valueType="floatType" />
+            </set>
+        </item>
+    
+        <item android:state_pressed="false">
+            <set>
+                <objectAnimator
+                    android:duration="100"
+                    android:propertyName="translationZ"
+                    android:valueTo="2dp"
+                    android:valueType="floatType" />
+            </set>
+        </item>
     </selector>
-  
-这用，又可以在5.0以上实现水波纹效果，又可以在5.0以下实现点击变色的效果。
+    
+（2）android:stateListAnimator="@animator/xxx"赋值给view（  **android:clickable="true"不可少**）
 
-### 2.2 自定义颜色+设置边界
-设置边界的做法，就是在标签`<ripple>`下，使用标签`<item>`，item可以设置任何你想要的样式，这里以边框为例：
-
-ripple_shape01.xml：
-    
-    <?xml version="1.0" encoding="utf-8"?>
-    <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="#4af407">
-        <!--添加item以后会约束水波纹的范围-->
-        <item android:drawable="@android:color/white"/>
-    </ripple>
-    
-绑定到控件上
-    
-      <TextView
-                android:id="@+id/tv_02"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/ripple_shape01"
+    <TextView
+                android:id="@+id/tv_01"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_margin="20dp"
+                android:background="@android:color/darker_gray"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="自定义-青色-有边界"
-                android:textSize="10sp" />
+                android:stateListAnimator="@animator/view_state_change_01"
+                android:text="xml方式调用" />
 
-**如上样式，可以使用图片代替颜色，不过图片需要放到drawable文件夹下**
+### 2 code方式调用
+code调用通过如下两步可以调用
 
-### 2.3 自定义颜色+设置边界+有边框
-方式1：
-ripple_shape02.xml：
+1. 在 res/animator下，创建 根标签为`<selector>`的xml文件
+2. code调用
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="#f7e307">
-        <!--添加item以后会约束水波纹的范围-->
-        <item>
-            <shape android:shape="rectangle">
-                <corners android:radius="10dp" />
-                <solid android:color="#5a949e" />
-                <stroke android:color="#999999" />
-            </shape>
-        </item>
-    </ripple>
-      
-绑定到控件上
+示例：
+（1）res/animator下创建 view_state_change_02.xml：（同上）
     
-      <TextView
-                android:id="@+id/tv_03"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/ripple_shape02"
+    <?xml version="1.0" encoding="utf-8"?>
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:state_pressed="true">
+            <set>
+                <objectAnimator
+                    android:duration="@android:integer/config_shortAnimTime"
+                    android:propertyName="translationZ"
+                    android:valueTo="5dp"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="@android:integer/config_shortAnimTime"
+                    android:propertyName="rotationX"
+                    android:valueTo="-10"
+                    android:valueType="floatType"/>
+            </set>
+        </item>
+    
+        <item
+            android:state_pressed="false">
+            <set>
+                <objectAnimator
+                    android:duration="100"
+                    android:propertyName="translationZ"
+                    android:valueTo="2dp"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="@android:integer/config_shortAnimTime"
+                    android:propertyName="rotationX"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+            </set>
+        </item>
+    </selector>
+（2）code调用（ 布局中tv_02属性**android:clickable="true"不可少**）
+
+        /**
+         * code方式 引用
+         */
+        private void initStateListAnimator() {
+            //加载动画(属性动画AnimatorInflater加载动画xml)
+            StateListAnimator stateListAnimator = AnimatorInflater.loadStateListAnimator(this, R.animator.view_state_change_02);
+            //设置动画
+            tv_02.setStateListAnimator(stateListAnimator);
+        }
+ 
+ ### 3 AnimatedStateListDrawable 动画list使用
+ 
+ 当你是 pressed 状态的时候 animation-list 正着走一遍，drawable 使用最后一个。  
+ 当你是 default 状态时 animation-list 反着走一遍，drawable 使用第一个。
+ 
+ 使用步骤：
+ 1. res/drawable下创建animation-list的xml
+ eg:bg_animated_statelist_drawable.xml:
+    
+    
+    <?xml version="1.0" encoding="utf-8"?>
+    <animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
+    
+        <!-- provide a different drawable for each state -->
+        <item
+            android:id="@+id/pressed"
+            android:drawable="@drawable/img29"
+            android:state_pressed="true" />
+        <!-- <item
+            android:id="@+id/focused"
+            android:drawable="@drawable/btn_focused"
+            android:state_focused="true"/> -->
+        <item
+            android:id="@id/default1"
+            android:drawable="@drawable/img1" />
+    
+        <!-- specify a transition -->
+        <transition
+            android:fromId="@+id/default1"
+            android:toId="@+id/pressed">
+            <animation-list>
+                <item
+                    android:drawable="@drawable/img2"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img3"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img4"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img5"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img6"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img7"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img8"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img9"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img10"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img13"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img14"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img15"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img17"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img18"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img19"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img20"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img21"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img22"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img23"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img24"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img25"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img26"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img27"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img28"
+                    android:duration="100" />
+                <item
+                    android:drawable="@drawable/img29"
+                    android:duration="100" />
+            </animation-list>
+        </transition>
+    </animated-selector>
+ 2. 布局的某个view调用（  **android:clickable="true"不可少**）：
+ 
+        
+            <ImageView
+                android:id="@+id/img_01"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="15dp"
+                android:background="@drawable/bg_animated_statelist_drawable"
                 android:clickable="true"
-                android:gravity="center"
-                android:text="自定义-青色-有边界"
-                android:textSize="10sp" />
-
-方式2：
-先定义shape03.xml:
-    
-    <?xml version="1.0" encoding="utf-8"?>
-    <shape xmlns:android="http://schemas.android.com/apk/res/android"
-        android:shape="rectangle">
-        <stroke
-            android:width="1dp"
-            android:color="@color/colorAccent" />
-        <solid android:color="#7b6060" />
-    </shape>
-    
-再定义ripple_shape03.xml：
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="#f7e307">
-        <item android:drawable="@drawable/shape03" />
-    </ripple>
-最后控件引用即可  
-### 2.4 自定义颜色+设置边界+有边框的selector
-
-ripple_selector.xml:
-    
-    <?xml version="1.0" encoding="utf-8"?>
-    <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:color="#ef0aae">
-        <item>
-            <selector>
-                <item
-                    android:drawable="@drawable/shape03"
-                    android:state_pressed="true"></item>
-                <item
-                    android:drawable="@drawable/shape04"
-                    android:state_pressed="false"></item>
-            </selector>
-        </item>
-    </ripple>
- 里头的shape03.xml和shape04.xml就是2.3的样式，最后引用即可
- 
- 
- ## 3.选择框的Ripple效果
- 
- https://www.2cto.com/kf/201410/346953.html
- 
- 
-
+                android:translationZ="3dp"/>

@@ -19,7 +19,7 @@ public class MainAct extends AppCompatActivity {
 
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
-    @BindView(R2.id.rv)
+    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
 
     //-------------------------------------------------------------
@@ -66,6 +66,8 @@ public class MainAct extends AppCompatActivity {
                         startToDemo3();
                         break;
                     case 3:
+//                        startToDemo4();
+                        Toast.makeText(MainAct.this, "未做", Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
                         break;
@@ -90,11 +92,16 @@ public class MainAct extends AppCompatActivity {
     }
 
     private void startToDemo2() {
-        Intent intent = new Intent(this, Demo3Act.class);
+        Intent intent = new Intent(this, PtSpDemo1Act.class);
         startActivity(intent);
     }
 
     private void startToDemo3() {
+        Intent intent = new Intent(this, InterpolatorAct.class);
+        startActivity(intent);
+    }
+
+    private void startToDemo4() {
         Intent intent = new Intent(this, Demo3Act.class);
         startActivity(intent);
     }

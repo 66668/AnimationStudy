@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import lib.base.sjy.adpater.MainAdapter;
 
 /**
+ * TODO  未做
  * 属性动画 特有动画效果
  */
 public class PtSpecialMainAct extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class PtSpecialMainAct extends AppCompatActivity {
 
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
-    @BindView(R2.id.rv)
+    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
 
     //-------------------------------------------------------------

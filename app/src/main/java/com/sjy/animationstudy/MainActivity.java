@@ -18,6 +18,7 @@ import lib.circular.reveal.CRMainAct;
 import lib.property.anim.MainAct;
 import lib.ripple.effect.REMainActivity;
 import lib.sjy.frame.FrameAnimActivity;
+import lib.view.state.changes.VSCMainAct;
 
 import com.sjy.tweenanim.TAMainAct;
 
@@ -47,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         data.add("03-属性动画(Propety Animation)");
         data.add("04-触摸反馈动画（Ripple Effect）");
         data.add("05-揭露动画（Reveal Effect）");
+        data.add("06-视图状态动画（View State Changes）");
 //        data.add("06-转场动画 & 共享元素（Activity 切换动画）");
-//        data.add("07-视图状态动画（Animate View State Changes）");
 //        data.add("08-矢量图动画（Vector 动画）");
 //        data.add("09-约束布局实现的关键帧动画（ConstraintSet 动画）");
         //
@@ -83,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
                         startToReveal();
                         break;
                     case 5:
+                        startToViewStateChange();
+                        break;
                     case 6:
                     case 7:
                     case 8:
@@ -115,6 +118,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void startToReveal() {
         Intent intent = new Intent(MainActivity.this, CRMainAct.class);
+        startActivity(intent);
+    }
+
+    private void startToViewStateChange() {
+        Intent intent = new Intent(MainActivity.this, VSCMainAct.class);
         startActivity(intent);
     }
 }

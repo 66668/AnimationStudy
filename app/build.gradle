@@ -36,4 +36,5 @@ dependencies {
     //其他动画
     implementation project(':lib_anim_more:lib_ripple_effect')
     implementation project(path: ':lib_anim_more:lib_circular_reveal')
+    implementation project(path: ':lib_anim_more:lib_view_state_changes')
 }

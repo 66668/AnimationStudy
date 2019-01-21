@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VSCMainAct">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_01"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_margin="20dp"
+                android:background="@android:color/darker_gray"
+                android:clickable="true"
+                android:gravity="center"
+                android:stateListAnimator="@animator/view_state_change_01"
+                android:text="xml方式调用" />
+
+            <TextView
+                android:id="@+id/tv_02"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_margin="20dp"
+                android:background="@android:color/darker_gray"
+                android:clickable="true"
+                android:gravity="center"
+                android:stateListAnimator="@animator/view_state_change_01"
+                android:text="code方式调用" />
+
+
+            <ImageView
+                android:id="@+id/img_01"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="15dp"
+                android:background="@drawable/bg_animated_statelist_drawable"
+                android:clickable="true"
+                android:translationZ="3dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
