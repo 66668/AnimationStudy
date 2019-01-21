@@ -45,6 +45,8 @@ android3.0之前，主要包括两种动画方式：**补间动画**（Tween Ani
 
 5. [Circular Reveal 循环揭露动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_circular_reveal/README_Circular_Reveal.md);
 
+6. [View State Changes 视图状态动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_view_state_changes/README_ViewStateChanges.md);
+
 
 属性动画 翻译官方文档：https://www.jianshu.com/p/51f6576cf20e
 

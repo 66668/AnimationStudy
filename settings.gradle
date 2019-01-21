@@ -1,8 +1,12 @@
 include ':app'//最终调用界面
 include ':lib_base'//基本功能类
-include 'lib_anim_more:lib_ripple_effect'//触摸反馈动画
-include 'lib_anim_more:lib_circular_reveal'//揭露动画
+
 include ':lib_anim_base:lib_tween_anim'//补间动画
 include ':lib_anim_base:lib_frame_anim'//帧动画
 include ':lib_anim_base:lib_property_anim'//属性动画
+
+include 'lib_anim_more:lib_ripple_effect'//触摸反馈动画
+include 'lib_anim_more:lib_circular_reveal'//揭露动画
+include ':lib_anim_more:lib_view_state_changes'//视图状态动画
+
 
