@@ -7,12 +7,43 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".TransMainAct" />
+        <!--overridependingTransition-->
         <activity
             android:name=".transdemo.Trans1Act"
             android:launchMode="singleInstance" />
         <activity
             android:name=".transdemo.Trans2Act"
             android:launchMode="singleInstance" />
+
+        <!--style方式-->
+        <activity
+            android:name=".styledemo.StyleMainAct"
+            android:launchMode="singleInstance" />
+
+        <activity
+            android:name=".styledemo.DemoLeftAct"
+            android:launchMode="singleInstance"
+            android:theme="@style/Left_style" />
+
+        <activity
+            android:name=".styledemo.DemoRightAct"
+            android:launchMode="singleInstance"
+            android:theme="@style/right_style" />
+
+        <activity
+            android:name=".styledemo.DemoTopAct"
+            android:launchMode="singleInstance"
+            android:theme="@style/top_style" />
+
+        <activity
+            android:name=".styledemo.DemoBottomAct"
+            android:launchMode="singleInstance"
+            android:theme="@style/bottom_style" />
+
+        <activity
+            android:name=".styledemo.DemoAlphaAct"
+            android:launchMode="singleInstance"
+            android:theme="@style/alpha_style" />
 
     </application>
 </manifest>

@@ -19,6 +19,9 @@ import lib.anim.transition.R;
 import lib.anim.transition.R2;
 import lib.base.sjy.adpater.MainAdapter;
 
+/**
+ * overridePendingTransition方式
+ */
 public class Trans2Act extends AppCompatActivity {
     //-----------------------------控件--------------------------------
     //RecyclerView-v7

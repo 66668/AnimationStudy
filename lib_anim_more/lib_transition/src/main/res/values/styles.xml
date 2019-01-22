@@ -8,19 +8,63 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ripple_Button">
-        <item name="android:buttonStyle">@style/Widget.AppCompat.Button</item>
-        <item name="android:colorButtonNormal">@android:color/white</item>
+    <!--转场动画-act切换之sytle样式-->
+
+    <!--方式1：-->
+    <style name="Left_style" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/leftDemo_anim</item>
     </style>
 
-    <style name="ripple_Button_Borderless">
-        <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
-        <item name="android:colorButtonNormal">@android:color/holo_green_dark</item>
+    <style name="leftDemo_anim" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_left</item>
     </style>
 
-    <style name="ripple_Button_BorderlessColored">
-        <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
-        <item name="android:colorButtonNormal">@android:color/darker_gray</item>
+    <!--方式2：-->
+    <style name="right_style" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/rightDemo_anim</item>
     </style>
+
+    <style name="rightDemo_anim" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_right</item>
+    </style>
+
+    <!--方式3：-->
+    <style name="top_style" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/topDemo_anim</item>
+    </style>
+
+    <style name="topDemo_anim" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/slide_in_top</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_top</item>
+    </style>
+
+    <!--方式4：-->
+    <style name="bottom_style" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/bottomDemo_anim</item>
+    </style>
+
+    <style name="bottomDemo_anim" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+
+    <!--方式5：-->
+    <style name="alpha_style" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/alphaDemo_anim</item>
+    </style>
+
+    <style name="alphaDemo_anim" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/slide_in_alpha</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_alpha</item>
+    </style>
+
 
 </resources>

@@ -36,3 +36,134 @@ Activity 或者 Fragment 的动画切换，但是他们仅仅局限与将整个�
 **简介**：Activity 跳转动画是分为两个部分的：一个 Activity 的销毁动画与一个 Activity 的显示动画。实现方式如下：
 
 ### 1.第一种方式 使用 overridePendingTransition 方法实现 Activity 跳转动画
+这个方法很简单，只需要在跳转代码后边加上overridePendingTransition()方法即可。如下：
+(1)调用：
+
+            //在调用了 startActivity 方法之后立即调用 overridePendingTransition 方法
+            Intent intent = new Intent(Trans1Act.this, Trans2Act.class);
+            startActivity(intent);
+            //该方法紧跟startActivity，不要作延迟处理。
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+            
+(2)动画：slide_in_left.xml:
+    
+     <?xml version="1.0" encoding="utf-8"?>
+      <set xmlns:android="http://schemas.android.com/apk/res/android"
+           android:shareInterpolator="false"
+           android:zAdjustment="top">
+           <translate
+                android:duration="200"
+                android:fromXDelta="-100.0%p"
+                android:toXDelta="0.0" />
+      </set>
+slide_out_left.xml:
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <set xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shareInterpolator="false"
+        android:zAdjustment="top">
+        <translate
+            android:duration="200"
+            android:fromXDelta="-100.0%p"
+            android:toXDelta="0.0" />
+    </set>
+    
+### 1.第2种方式 style中添加
+
+#### style的错误方式：
+style的item标签中使用属性 android:windowAnimationStyle,使用windowEnterAnimation和windowExitAnimation,其他尽量不要用
+示例如下：
+（1）自定义样式：
+
+     <style name="Left_style" parent="Theme.AppCompat.Light.NoActionBar">
+          <item name="android:windowAnimationStyle">@style/leftDemo_anim</item>
+      </style>
+  
+      <style name="leftDemo_anim" >
+          <item name="android:windowEnterAnimation">@anim/slide_in_left</item>
+          <item name="android:windowExitAnimation">@anim/slide_out_left</item>
+      </style>
+
+（2）slide_out_left.xml和slide_in_left.xml都是：
+    
+    <?xml version="1.0" encoding="utf-8"?>
+    <set xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shareInterpolator="false"
+        android:zAdjustment="top">
+        <translate
+            android:duration="200"
+            android:fromXDelta="-100.0%p"
+            android:toXDelta="0.0" />
+    </set>
+    
+（3）AndroidManifest.xml中绑定到act中：
+    
+      <activity
+          android:name=".styledemo.DemoLeftAct"
+          android:theme="@style/Left_style" />
+         
+>说明：按照如上步骤执行后，有些手机动画效果无效。所以如上代码的完整步骤如下：
+
+#### 完整style样式的act动画步骤:
+（1）Left_style中添加    **<item name="windowNoTitle">true</item>**
+leftDemo_anim添加**parent="@android:style/Animation.Translucent"**（使用parent="@android:style/Animation.Activity"无效），
+
+    
+     <style name="Left_style" parent="Theme.AppCompat.Light.NoActionBar">
+           <item name="android:windowIsTranslucent">true</item>
+           <item name="android:windowAnimationStyle">@style/leftDemo_anim</item>
+       </style>
+   
+       <style name="leftDemo_anim" parent="@android:style/Animation.Translucent">
+           <item name="android:windowEnterAnimation">@anim/slide_in_left</item>
+           <item name="android:windowExitAnimation">@anim/slide_out_left</item>
+       </style>
+
+(2)AndroidManifest.xml中绑定到act中：
+    
+      <activity
+          android:name=".styledemo.DemoLeftAct"
+          android:theme="@style/Left_style" />
+          
+(3)**重写界面退出方法（back键盘，界面按钮都写），加入overridePendingTransition(0,0)方法，排除手机厂商os系统自带的界面动画**
+    
+       startActivity(new Intent(DemoLeftAct.this, StyleMainAct.class));
+       this.finish();
+       overridePendingTransition(0, 0);
+            
+参考：https://blog.csdn.net/fancylovejava/article/details/39643449
+
+而在 windowAnimationStyle 中存在多种动画，如下是**所有的动画属性**，如有需要，自行测试修改
+
+    <style name="activityStyle" parent="@android:style/Animation.Translucent">
+        <item name="android:taskOpenEnterAnimation">@anim/activity_open_in_anim</item>
+        <item name="android:taskOpenExitAnimation">@anim/activity_open_out_anim</item>
+        <item name="android:taskToFrontEnterAnimation">@anim/activity_open_in_anim</item>
+        <item name="android:taskToFrontExitAnimation">@anim/activity_open_out_anim</item>
+        <item name="android:activityOpenEnterAnimation">@anim/activity_open_in_anim</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_open_out_anim</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_open_in_anim</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_open_out_anim</item>
+        <item name="android:taskCloseEnterAnimation">@anim/activity_open_in_anim</item>
+        <item name="android:taskCloseExitAnimation">@anim/activity_open_out_anim</item>
+        <item name="android:taskToBackEnterAnimation">@anim/activity_open_in_anim</item>
+        <item name="android:taskToBackExitAnimation">@anim/activity_open_out_anim</item>
+        <item name="android:wallpaperOpenEnterAnimation">@anim/activity_open_in_anim</item>
+        <item name="android:wallpaperOpenExitAnimation">@anim/activity_open_out_anim</item>
+        <item name="android:wallpaperCloseEnterAnimation">@anim/activity_open_in_anim</item>
+        <item name="android:wallpaperCloseExitAnimation">@anim/activity_open_out_anim</item>
+        <item name="android:wallpaperIntraOpenEnterAnimation">@anim/activity_open_in_anim</item>
+        <item name="android:wallpaperIntraOpenExitAnimation">@anim/activity_open_out_anim</item>
+        <item name="android:wallpaperIntraCloseEnterAnimation">@anim/activity_open_in_anim</item>
+        <item name="android:wallpaperIntraCloseExitAnimation">@anim/activity_open_out_anim</item>
+    </style>
+    
+    
+     <style name="windowStyle" parent="@android:style/Animation.Translucent">
+            <item name="android:windowEnterAnimation">@anim/base_slide_right_in</item>
+            <item name="android:windowExitAnimation">@anim/base_slide_right_out</item>
+     </style>
+    
+    
+   
+

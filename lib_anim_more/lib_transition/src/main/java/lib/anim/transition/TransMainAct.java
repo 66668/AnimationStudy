@@ -14,9 +14,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import lib.anim.transition.styledemo.StyleMainAct;
 import lib.anim.transition.transdemo.Trans1Act;
 import lib.base.sjy.adpater.MainAdapter;
 
+/**
+ * 转场动画
+ */
 public class TransMainAct extends AppCompatActivity {
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
@@ -43,7 +47,7 @@ public class TransMainAct extends AppCompatActivity {
         data = new ArrayList<>();
         //
         data.add("Act切换动画-方式1：overridePendingTransition");
-        data.add("Act切换动画-方式2：sytle");
+        data.add("Act切换动画-方式2：sytle-windowAnimationStyle");
         //
         adapter = new MainAdapter(this);
         adapter.setDatas(data);
@@ -64,7 +68,7 @@ public class TransMainAct extends AppCompatActivity {
                         startToTrans1();
                         break;
                     case 1:
-                        startToFrame();
+                        startToStyle();
                         break;
                     case 2:
                         startToProperty();
@@ -93,9 +97,9 @@ public class TransMainAct extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void startToFrame() {
-//        Intent intent = new Intent(MainAct.this, FrameAnimActivity.class);
-//        startActivity(intent);
+    private void startToStyle() {
+        Intent intent = new Intent(TransMainAct.this, StyleMainAct.class);
+        startActivity(intent);
     }
 
     private void startToProperty() {

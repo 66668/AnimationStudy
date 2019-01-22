@@ -2,21 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#cde6f4">
+    android:background="#b294ed">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="这是demo2" />
+        android:text="新界面" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="360dp"
-        android:layout_centerInParent="true"
-        android:src="@mipmap/ic_launcher" />
 
     <Button
         android:id="@+id/btn_trans"
