@@ -8,5 +8,6 @@ include ':lib_anim_base:lib_property_anim'//属性动画
 include 'lib_anim_more:lib_ripple_effect'//触摸反馈动画
 include 'lib_anim_more:lib_circular_reveal'//揭露动画
 include ':lib_anim_more:lib_view_state_changes'//视图状态动画
+include ':lib_anim_more:lib_transition'//转场动画
 
 

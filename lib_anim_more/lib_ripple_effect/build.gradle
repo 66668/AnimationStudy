@@ -30,6 +30,6 @@ dependencies {
     implementation 'com.jakewharton:butterknife:9.0.0-rc2'
     //lib下使用3步骤：1.project/build.gradle 2.该处 3 该处的顶部添加plugin
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc2'
-    implementation project(':lib_base')
+    api project(':lib_base')
 
 }

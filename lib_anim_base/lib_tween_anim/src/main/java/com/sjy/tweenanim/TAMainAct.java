@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,8 +21,11 @@ public class TAMainAct extends AppCompatActivity {
 
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
-    @BindView(R2.id.rv)
+    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
+
+    @BindView(R2.id.tv_titile)
+    TextView tv_title;
 
     //-------------------------------------------------------------
     private List<String> data = new ArrayList<>();
@@ -30,8 +34,9 @@ public class TAMainAct extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_vamain);
+        setContentView(R.layout.act_main);
         ButterKnife.bind(this);
+        tv_title.setText("Tween Animation示例介绍");
         initView();
     }
 
