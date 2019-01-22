@@ -6,7 +6,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainAct" />
+        <activity android:name=".PTMainAct" />
         <activity android:name=".PtBaseDemoAct" />
         <activity android:name=".PtSpDemo1Act" />
         <activity android:name=".InterpolatorAct" />

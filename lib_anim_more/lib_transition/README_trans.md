@@ -26,8 +26,13 @@ Activity 或者 Fragment 的动画切换，但是他们仅仅局限与将整个�
 * 可以在activity之间跳转的时候添加动画
 * 动画共享元素之间的转换活动
 * activity中布局元素的过渡动画。
-
 英语原文：
 1. Animate activity layout content when transitioning from one activity to another.
 2. Animate shared elements (Hero views) in transitions between activities.
 3. Animate view changes within same activity.
+
+## 实现 Activity 的切换动画
+
+**简介**：Activity 跳转动画是分为两个部分的：一个 Activity 的销毁动画与一个 Activity 的显示动画。实现方式如下：
+
+### 1.第一种方式 使用 overridePendingTransition 方法实现 Activity 跳转动画

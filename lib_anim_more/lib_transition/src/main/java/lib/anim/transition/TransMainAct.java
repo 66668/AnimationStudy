@@ -1,23 +1,23 @@
-package lib.property.anim;
+package lib.anim.transition;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import lib.anim.transition.transdemo.Trans1Act;
 import lib.base.sjy.adpater.MainAdapter;
 
-public class MainAct extends AppCompatActivity {
-
+public class TransMainAct extends AppCompatActivity {
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
     @BindView(R2.id.recyclerView)
@@ -31,22 +31,19 @@ public class MainAct extends AppCompatActivity {
     private MainAdapter adapter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_main);
         ButterKnife.bind(this);
-        tv_title.setText("Property Animation属性动画详解");
+        tv_title.setText("转场动画 演示demo");
         initView();
     }
 
     private void initView() {
         data = new ArrayList<>();
         //
-        data.add("属性动画 代替补间 简单示例");
-        data.add("特有效果 简单示例");
-        data.add("插值器（包括自定义）示例");
-        data.add("估值器TypeEvaluator 简单示例");
-
+        data.add("Act切换动画-方式1：overridePendingTransition");
+        data.add("Act切换动画-方式2：sytle");
         //
         adapter = new MainAdapter(this);
         adapter.setDatas(data);
@@ -57,59 +54,67 @@ public class MainAct extends AppCompatActivity {
         //
         recyclerView.setAdapter(adapter);
         //
+
         adapter.setListener(new MainAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(String str, int pos) {
+
                 switch (pos) {
                     case 0:
-                        startToDemo1();
+                        startToTrans1();
                         break;
                     case 1:
-                        startToDemo2();
+                        startToFrame();
                         break;
                     case 2:
-                        startToDemo3();
+                        startToProperty();
                         break;
                     case 3:
-//                        startToDemo4();
-                        Toast.makeText(MainAct.this, "未做", Toast.LENGTH_SHORT).show();
+                        startToRippleEffect();
                         break;
                     case 4:
+                        startToReveal();
                         break;
                     case 5:
+                        startToViewStateChange();
                         break;
                     case 6:
-                        break;
                     case 7:
-                        break;
                     case 8:
-                        Toast.makeText(MainAct.this, str + pos, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TransMainAct.this, str + pos, Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
         });
     }
 
-    //
-    private void startToDemo1() {
-        Intent intent = new Intent(this, PtBaseDemoAct.class);
+    private void startToTrans1() {
+        Intent intent = new Intent(TransMainAct.this, Trans1Act.class);
         startActivity(intent);
     }
 
-    private void startToDemo2() {
-        Intent intent = new Intent(this, PtSpDemo1Act.class);
-        startActivity(intent);
+    private void startToFrame() {
+//        Intent intent = new Intent(MainAct.this, FrameAnimActivity.class);
+//        startActivity(intent);
     }
 
-    private void startToDemo3() {
-        Intent intent = new Intent(this, InterpolatorAct.class);
-        startActivity(intent);
+    private void startToProperty() {
+//        Intent intent = new Intent(MainAct.this, MainAct.class);
+//        startActivity(intent);
     }
 
-    private void startToDemo4() {
-        Intent intent = new Intent(this, Demo3Act.class);
-        startActivity(intent);
+    private void startToRippleEffect() {
+//        Intent intent = new Intent(MainAct.this, REMainActivity.class);
+//        startActivity(intent);
     }
 
+    private void startToReveal() {
+//        Intent intent = new Intent(MainAct.this, CRMainAct.class);
+//        startActivity(intent);
+    }
 
+    private void startToViewStateChange() {
+//        Intent intent = new Intent(MainAct.this, VSCMainAct.class);
+//        startActivity(intent);
+    }
 }
