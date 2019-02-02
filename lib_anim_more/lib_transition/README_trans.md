@@ -165,7 +165,9 @@ leftDemo_anim添加**parent="@android:style/Animation.Translucent"**（使用par
     
  ## 实现 Activity 的切换动画-方法2--Transitions Framework
  
- **简介**,该类动画主要在android.transition包下，实现方式有三种：
+ **简介**,该类动画主要在android.transition包下，关于该包的API详解，请参考本人总结：
+1. [API android.transition 详解跳转（位置：lib_anim_more/lib_transition/README_trans_API.md）](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_transition/README_trans_API.md);
+实现方式有三种：
  
  1. style方式
  2. xml方式
