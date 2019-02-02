@@ -14,7 +14,7 @@ android3.0之前，主要包括两种动画方式：**补间动画**（Tween Ani
 3. **Curved motion       曲线运动**
 4. **View state changes  视图状态变化**
 5. **Vector Drawables 矢量图动画**
-6. **Activity transitions  活动转场**
+6. **Activity transitions  转场动画(共享元素)**
 
 所以分类时,以最小的功能块划分为：
 
@@ -41,11 +41,13 @@ android3.0之前，主要包括两种动画方式：**补间动画**（Tween Ani
 
 高级动画：
 
-4. [Ripple Effect 触摸反馈动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_ripple_effect/README_Ripple_Effect.md);
+1. [Ripple Effect 触摸反馈动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_ripple_effect/README_Ripple_Effect.md);
 
-5. [Circular Reveal 循环揭露动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_circular_reveal/README_Circular_Reveal.md);
+2. [Circular Reveal 循环揭露动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_circular_reveal/README_Circular_Reveal.md);
 
-6. [View State Changes 视图状态动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_view_state_changes/README_ViewStateChanges.md);
+3. [View State Changes 视图状态动画 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_view_state_changes/README_ViewStateChanges.md);
+
+4. [Activity transitions  转场动画(共享元素) 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_transition/README_trans.md);
 
 
 属性动画 翻译官方文档：https://www.jianshu.com/p/51f6576cf20e
