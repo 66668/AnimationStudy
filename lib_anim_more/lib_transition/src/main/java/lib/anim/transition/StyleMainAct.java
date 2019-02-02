@@ -1,19 +1,21 @@
-package lib.anim.transition.styledemo;
+package lib.anim.transition;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import lib.anim.transition.R;
-import lib.anim.transition.R2;
+import lib.anim.transition.styledemo.DemoAlphaAct;
+import lib.anim.transition.styledemo.DemoBottomAct;
+import lib.anim.transition.styledemo.DemoLeftAct;
+import lib.anim.transition.styledemo.DemoRightAct;
+import lib.anim.transition.styledemo.DemoTopAct;
 import lib.base.sjy.adpater.MainAdapter;
 
 /**

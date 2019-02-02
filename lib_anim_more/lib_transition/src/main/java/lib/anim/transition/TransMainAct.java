@@ -14,7 +14,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import lib.anim.transition.styledemo.StyleMainAct;
 import lib.anim.transition.transdemo.Trans1Act;
 import lib.base.sjy.adpater.MainAdapter;
 

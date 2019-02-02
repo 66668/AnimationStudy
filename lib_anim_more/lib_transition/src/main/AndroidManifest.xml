@@ -17,7 +17,7 @@
 
         <!--style方式-->
         <activity
-            android:name=".styledemo.StyleMainAct"
+            android:name=".StyleMainAct"
             android:launchMode="singleInstance" />
 
         <activity

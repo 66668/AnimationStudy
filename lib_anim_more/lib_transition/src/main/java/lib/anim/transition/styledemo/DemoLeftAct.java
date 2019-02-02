@@ -11,6 +11,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import lib.anim.transition.R;
 import lib.anim.transition.R2;
+import lib.anim.transition.StyleMainAct;
 
 /**
  * style样式

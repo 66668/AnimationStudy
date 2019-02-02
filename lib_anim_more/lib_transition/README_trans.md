@@ -31,11 +31,11 @@ Activity 或者 Fragment 的动画切换，但是他们仅仅局限与将整个�
 2. Animate shared elements (Hero views) in transitions between activities.
 3. Animate view changes within same activity.
 
-## 实现 Activity 的切换动画
+## 实现 Activity 的切换动画-方法1--overridePendingTransition
 
-**简介**：Activity 跳转动画是分为两个部分的：一个 Activity 的销毁动画与一个 Activity 的显示动画。实现方式如下：
+**简介**：Activity 跳转动画是分为两个部分的：一个 Activity 的销毁动画与一个 Activity 的显示动画,其中一种实现方式是overridePendingTransition，实现方式如下：
 
-### 1.第一种方式 使用 overridePendingTransition 方法实现 Activity 跳转动画
+### 1.Activity 跳转动画： overridePendingTransition 的代码样式 
 这个方法很简单，只需要在跳转代码后边加上overridePendingTransition()方法即可。如下：
 (1)调用：
 
@@ -68,10 +68,9 @@ slide_out_left.xml:
             android:toXDelta="0.0" />
     </set>
     
-### 1.第2种方式 style中添加
-
+### 2.Activity 跳转动画： overridePendingTransition 的style样式 
+style的item标签中使用属性 **android:windowAnimationStyle**,使用windowEnterAnimation和windowExitAnimation,其他尽量不要用
 #### style的错误方式：
-style的item标签中使用属性 android:windowAnimationStyle,使用windowEnterAnimation和windowExitAnimation,其他尽量不要用
 示例如下：
 （1）自定义样式：
 
@@ -102,7 +101,7 @@ style的item标签中使用属性 android:windowAnimationStyle,使用windowEnter
           android:name=".styledemo.DemoLeftAct"
           android:theme="@style/Left_style" />
          
->说明：按照如上步骤执行后，有些手机动画效果无效。所以如上代码的完整步骤如下：
+>说明：按照如上步骤执行后，有些手机动画效果无效,而且点击back键后会和系统动画冲突。所以如上代码的完整步骤如下：
 
 #### 完整style样式的act动画步骤:
 （1）Left_style中添加    **<item name="windowNoTitle">true</item>**
@@ -164,6 +163,16 @@ leftDemo_anim添加**parent="@android:style/Animation.Translucent"**（使用par
             <item name="android:windowExitAnimation">@anim/base_slide_right_out</item>
      </style>
     
+ ## 实现 Activity 的切换动画-方法2--Transitions Framework
+ 
+ **简介**,该类动画主要在android.transition包下，实现方式有三种：
+ 
+ 1. style方式
+ 2. xml方式
+ 3. code方式
+ 
+ 
+ 
     
    
 
