@@ -11,17 +11,17 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import lib.anim.transition.styledemo.DemoAlphaAct;
-import lib.anim.transition.styledemo.DemoBottomAct;
-import lib.anim.transition.styledemo.DemoLeftAct;
-import lib.anim.transition.styledemo.DemoRightAct;
-import lib.anim.transition.styledemo.DemoTopAct;
+import lib.anim.transition.demo2.DemoAlphaAct;
+import lib.anim.transition.demo2.DemoBottomAct;
+import lib.anim.transition.demo2.DemoLeftAct;
+import lib.anim.transition.demo2.DemoRightAct;
+import lib.anim.transition.demo2.DemoTopAct;
 import lib.base.sjy.adpater.MainAdapter;
 
 /**
  * style样式
  */
-public class StyleMainAct extends AppCompatActivity {
+public class Demo2MainAct extends AppCompatActivity {
     //-----------------------------控件--------------------------------
 
 
@@ -65,20 +65,20 @@ public class StyleMainAct extends AppCompatActivity {
 
                 switch (pos) {
                     case 0:
-                        startActivity(new Intent(StyleMainAct.this, DemoLeftAct.class));
+                        startActivity(new Intent(Demo2MainAct.this, DemoLeftAct.class));
                         overridePendingTransition(0,0);
                         break;
                     case 1:
-                        startActivity(new Intent(StyleMainAct.this, DemoRightAct.class));
+                        startActivity(new Intent(Demo2MainAct.this, DemoRightAct.class));
                         break;
                     case 2:
-                        startActivity(new Intent(StyleMainAct.this, DemoTopAct.class));
+                        startActivity(new Intent(Demo2MainAct.this, DemoTopAct.class));
                         break;
                     case 3:
-                        startActivity(new Intent(StyleMainAct.this, DemoBottomAct.class));
+                        startActivity(new Intent(Demo2MainAct.this, DemoBottomAct.class));
                         break;
                     case 4:
-                        startActivity(new Intent(StyleMainAct.this, DemoAlphaAct.class));
+                        startActivity(new Intent(Demo2MainAct.this, DemoAlphaAct.class));
                         break;
                     case 5:
                         break;

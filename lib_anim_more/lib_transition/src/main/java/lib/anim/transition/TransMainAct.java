@@ -14,7 +14,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import lib.anim.transition.transdemo.Trans1Act;
+import lib.anim.transition.demo1.Trans1Act;
 import lib.base.sjy.adpater.MainAdapter;
 
 /**
@@ -97,7 +97,7 @@ public class TransMainAct extends AppCompatActivity {
     }
 
     private void startToStyle() {
-        Intent intent = new Intent(TransMainAct.this, StyleMainAct.class);
+        Intent intent = new Intent(TransMainAct.this, Demo2MainAct.class);
         startActivity(intent);
     }
 

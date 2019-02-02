@@ -1,4 +1,4 @@
-package lib.anim.transition.styledemo;
+package lib.anim.transition.demo2;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,14 +9,14 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import lib.anim.transition.Demo2MainAct;
 import lib.anim.transition.R;
 import lib.anim.transition.R2;
-import lib.anim.transition.StyleMainAct;
 
 /**
  * style样式
  */
-public class DemoLeftAct extends AppCompatActivity {
+public class DemoAlphaAct extends AppCompatActivity {
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
     @BindView(R2.id.btn_trans)
@@ -31,11 +31,9 @@ public class DemoLeftAct extends AppCompatActivity {
 
     @OnClick(R2.id.btn_trans)
     public void onCLick(View view) {
-        startActivity(new Intent(DemoLeftAct.this, StyleMainAct.class));
+        startActivity(new Intent(DemoAlphaAct.this, Demo2MainAct.class));
         this.finish();
-        overridePendingTransition(0, 0);
+        overridePendingTransition(0,0);
     }
-
-
 
 }
