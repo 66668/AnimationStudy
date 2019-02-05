@@ -1,11 +1,11 @@
-# android.transition包源码详解
+# android.transition包 源码详解
 简介:该包下有24个类，按照功能划分，可以划分为四个模块，这样比较好记忆
 
 ## 1 包功能划分
 
 ## 1.1 PathMotion类及其两个子类（ArcMotion,PatternPathMotion）
 
-可以对这个基类进行扩展，以提供沿转换路径的移动。
+官网介绍：可以对这个基类进行扩展，以提供沿转换路径的移动。
 
 | java 类名 |类关系|描述信息 |
 | :-----: | :------- | :----- |
@@ -116,6 +116,7 @@ xml使用示例：
 
 ### 1.2.4 SidePropagation类详解
 
+
 1. 方法名
  
 | 方法名 |返回|描述信息 |
@@ -125,6 +126,63 @@ xml使用示例：
 |setSide(int side)|void|设置用于计算转换传播的边。|
 
 ## 1.3 Transition类及其子类
+
+**官网解释**：
+
+保存有关在场景更改期间将在其目标上运行的动画的信息。这个抽象类的子类可以编排几个子类(TransitionSet类或者它们可以自己执行定制的动画子类)。
+任何转换都有两个主要的任务:(1)捕获属性值，(2)基于捕获属性值的更改播放动画。自定义转换知道它感兴趣的视图对象上的哪些属性值，还知道如何对这些值进行动画更改。
+例如，淡出过渡跟踪对可见性相关属性的更改，并且能够构造和运行基于这些属性更改的淡出项的动画。
+
+注意:由于这些视图在屏幕上显示的方式，转换可能无法在SurfaceView或TextureView中正确工作。对于SurfaceView，问题是视图是从一个非ui线程更新的，
+因此由于转换(例如移动和调整视图)而对视图的更改可能与那些边界内的显示不同步。一般来说，TextureView与转换更兼容，但某些特定的转换(如渐变)可能与TextureView
+不兼容，因为它们依赖于ViewOverlay功能，而后者目前不支持TextureView。
+
+转换可以在res/transition目录中的XML资源文件中声明。资源中由一个产品化子类的标记名和一些属性组成，这些属性定义了产品化的一些属性。
+例如，下面是一个最小的资源文件，它声明了一个ChangeBounds转换:
+    
+    <changeBounds/>
+    
+下边的TransitionSet包含了Explode的可见性, ChangeBounds, ChangeTransform，和ChangeClipBounds and ChangeImageTransform:
+
+    <transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+        <explode/>
+        <changeBounds/>
+        <changeTransform/>
+        <changeClipBounds/>
+        <changeImageTransform/>
+    </transitionSet>
+  
+自定义转换类可以用`transition`标记实例化:
+
+    <transition class="my.app.transition.CustomTransition"/>
+ 
+注意，转换的属性不是必需的，就像在代码中声明时它们是可选的一样;从XML资源创建的转换将使用与代码创建的转换相同的缺省值。
+
+下面是一个稍微复杂一点的例子，它使用ChangeBounds和Fade子转换声明了TransitionSet转换:
+
+    <transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+         android:transitionOrdering="sequential">
+        <changeBounds/>
+        <fade android:fadingMode="fade_out" >
+            <targets>
+                <target android:targetId="@id/grayscaleContainer" />
+            </targets>
+        </fade>
+    </transitionSet>
+
+在本例中，transitionordering属性用于TransitionSet对象，将默认的`TransitionSet.ORDERING_TOGETHER`行为，变为`TransitionSet.ORDERING_SEQUENTIAL`。
+同样，Fade过渡使用`Fade.OUT`模式,而不是默认的`out-in`行为。最后，注意`targets`子标签的使用，它设置一组target标记，
+其中每个标记都列出了此转换所作用的特定`targetId`、`targetClass`、`targetName`、`excludeClass`、`excludeId`或`excludeName`。使用目标是可选的，
+但是可以用于限制在不变视图上检查属性的时间，或者限制在特定视图上运行的动画类型。在本例中，我们知道只有grayscaleContainer将消失，
+因此我们选择将Fade过渡限制为只显示该视图。
+
+有关转换的XML资源描述的更多信息，请参见R.styleable.Transition, R.styleable.TransitionSet, R.styleable.TransitionTarget, R.styleable.Fade,
+ R.styleable.Slide, and R.styleable.ChangeTransform. 
+ 
+(原文：https://developer.android.google.cn/reference/android/transition/Transition)
+| java 类名 |类关系|描述信息 |
+| :-----: | :------- | :----- |
+
 
 参考 https://blog.csdn.net/linyouhui6/article/details/80944112
 
