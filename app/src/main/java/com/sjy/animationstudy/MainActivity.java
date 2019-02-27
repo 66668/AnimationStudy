@@ -23,7 +23,7 @@ import lib.view.state.changes.VSCMainAct;
 
 import com.sjy.tweenanim.TAMainAct;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseAct {
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
     @BindView(R2.id.recyclerView)
