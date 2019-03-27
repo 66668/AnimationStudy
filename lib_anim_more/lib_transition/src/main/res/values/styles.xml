@@ -80,4 +80,24 @@
         <item name="android:windowReturnTransition">@transition/demo3_fade_01</item>
     </style>
 
+    <!--3 元素共享-->
+    <!--基本设置-->
+    <style name="sharedElement_Style_01" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <!---->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:fragmentSharedElementEnterTransition">@transition/demo4_sharelement
+        </item>
+        <item name="android:windowSharedElementExitTransition">@transition/demo4_sharelement</item>
+    </style>
+    <!--共享设置1-->
+    <style name="sharedElement_Style_01.Small">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+    <!--共享设置2-->
+    <style name="sharedElement_Style_01.BIG">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+    </style>
+
 </resources>

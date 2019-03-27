@@ -285,11 +285,132 @@ returnTransition 和 reenterTransition，那么就会执行这些定义的动画
 `ActivityOptionsCompat.makeSceneTransitionAnimation().toBundle()` 的方式来生成
  
   
- ## 实现 Activity 的共享动画
+ ## 实现 Activity 的共享动画 SharedElement
+ ### 1 在style中添加act样式,在对应act上添加该theme
+ 
+    <style name="sharedElement_Style_01" parent="@style/Theme.AppCompat.Light.NoActionBar">
+            <!---->
+            <item name="android:windowContentTransitions">true</item>
+            <item name="android:fragmentSharedElementEnterTransition">@transition/demo4_sharelement
+            </item>
+            <item name="android:windowSharedElementExitTransition">@transition/demo4_sharelement</item>
+        </style>
  
  
- 
- 
+ demo4_sharelement.xml:
     
+    <?xml version="1.0" encoding="utf-8"?>
+    <transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+        <explode
+            android:duration="500"
+            android:interpolator="@android:interpolator/bounce" />
+    
+    </transitionSet>
+ 
+ act添加theme
+ 
+    <!--共享元素 android.transition-->
+           <activity
+               android:name=".demo4.SEDemo4Act1"
+               android:theme="@style/sharedElement_Style_01" />
    
+           <activity
+               android:name=".demo4.SEDemo4Act2"
+               android:theme="@style/sharedElement_Style_01" />
+               
+### 2 设置相同的 transition name(相当于一个标记)
 
+为了使共享元素动画生效，你需要给共享元素的两个View设置相同的android:transitionName属性值。不过他们的id和其他属性可以不同。
+
+ 
+act1.xml的ImageView添加transitionName：
+
+      <ImageView
+            android:id="@+id/img"
+            style="@style/sharedElement_Style_01.Small"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:background="@mipmap/ic_launcher"
+            android:transitionName="sjy_01" />
+
+act2.xml的ImageView添加transitionName：
+    
+      <ImageView
+           android:id="@+id/img"
+           style="@style/sharedElement_Style_01.BIG"
+           android:layout_alignParentBottom="true"
+           android:layout_centerHorizontal="true"
+           android:layout_marginBottom="100dp"
+           android:background="@mipmap/ic_launcher"
+           android:transitionName="sjy_01" />
+           
+ style样式如下：
+ 
+     <!--共享设置1-->
+     <style name="sharedElement_Style_01.Small">
+         <item name="android:layout_width">50dp</item>
+         <item name="android:layout_height">50dp</item>
+     </style>
+     <!--共享设置2-->
+     <style name="sharedElement_Style_01.BIG">
+         <item name="android:layout_width">100dp</item>
+         <item name="android:layout_height">100dp</item>
+     </style>
+   
+### 3 代码设置
+
+使用 ActivityOptions.makeSceneTransitionAnimation() 方法指定要共享元素的 View 和 android:transitionName 属性的值
+
+eg:act1：
+    
+     @OnClick(R2.id.btn_trans)
+        public void onCLick(View view) {
+            Intent intent = new Intent(SEDemo4Act1.this, SEDemo4Act2.class);
+    
+            View sharedView = img;
+            String transitionName = "sjy_01";
+    
+            ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(SEDemo4Act1.this, sharedView, transitionName);
+            startActivity(intent, transitionActivityOptions.toBundle());
+    
+            this.finish();
+        }
+
+act2：
+    
+     @OnClick(R2.id.btn_trans)
+        public void onCLick(View view) {
+            Intent intent = new Intent(SEDemo4Act2.this, SEDemo4Act1.class);
+    
+            View sharedView = img;
+            String transitionName = "sjy_01";
+    
+            ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(SEDemo4Act2.this, sharedView, transitionName);
+            startActivity(intent, transitionActivityOptions.toBundle());
+            this.finish();
+        }
+        
+ 如此便现实了共享动画效果。
+ 
+ 
+## 实现 Fragmentg间 共享动画 
+  
+  如上步骤1，2相同，第三步修改为：
+ ### 3 代码设置
+ 
+    FragmentB fragmentB = FragmentB.newInstance(sample);
+    
+    // Defines enter transition for all fragment views
+    Slide slideTransition = new Slide(Gravity.RIGHT);
+    slideTransition.setDuration(1000);
+    sharedElementFragment2.setEnterTransition(slideTransition);
+    
+    // Defines enter transition only for shared element
+    ChangeBounds changeBoundsTransition = TransitionInflater.from(this).inflateTransition(R.transition.change_bounds);
+    fragmentB.setSharedElementEnterTransition(changeBoundsTransition);
+    
+    getFragmentManager().beginTransaction()
+            .replace(R.id.content, fragmentB)
+            .addSharedElement(blueView, getString(R.string.blue_name))
+            .commit();
+  

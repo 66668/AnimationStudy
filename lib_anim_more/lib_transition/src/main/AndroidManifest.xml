@@ -49,8 +49,18 @@
         <activity android:name=".demo3.Demo3xmlAct2" />
         <!--code样式-->
         <activity android:name=".demo3.Demo3codeAct" />
-        
+
         <activity android:name=".demo3.Demo3codeAct2" />
+
+        <!--共享元素 android.transition-->
+        <activity
+            android:name=".demo4.SEDemo4Act1"
+            android:theme="@style/sharedElement_Style_01" />
+
+        <activity
+            android:name=".demo4.SEDemo4Act2"
+            android:theme="@style/sharedElement_Style_01" />
+
 
     </application>
 </manifest>

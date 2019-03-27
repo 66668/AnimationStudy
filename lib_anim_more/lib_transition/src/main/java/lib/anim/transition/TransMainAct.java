@@ -17,6 +17,7 @@ import lib.anim.transition.demo1.Trans1Act;
 import lib.anim.transition.demo3.Demo3StyleAct;
 import lib.anim.transition.demo3.Demo3codeAct;
 import lib.anim.transition.demo3.Demo3xmlAct;
+import lib.anim.transition.demo4.SEDemo4Act1;
 import lib.base.sjy.adpater.MainAdapter;
 
 /**
@@ -52,6 +53,8 @@ public class TransMainAct extends AppCompatActivity {
         data.add("Act切换动画-方式3-1--sytle方式--windowContentTransitions");
         data.add("Act切换动画-方式3-2--xml方式");
         data.add("Act切换动画-方式3-3--code方式");
+        data.add("Act间共享元素（sharedElement）");
+        data.add("Fragment间共享元素（sharedElement）");
         //
         adapter = new MainAdapter(this);
         adapter.setDatas(data);
@@ -84,7 +87,7 @@ public class TransMainAct extends AppCompatActivity {
                         startToTrans_code();
                         break;
                     case 5:
-                        startToViewStateChange();
+                        actSharedElement();
                         break;
                     case 6:
                     case 7:
@@ -121,8 +124,13 @@ public class TransMainAct extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void startToViewStateChange() {
-//        Intent intent = new Intent(MainAct.this, VSCMainAct.class);
-//        startActivity(intent);
+    private void actSharedElement() {
+        Intent intent = new Intent(TransMainAct.this, SEDemo4Act1.class);
+        startActivity(intent);
+    }
+
+    private void frgSharedElement() {
+        Intent intent = new Intent(TransMainAct.this, SEDemo4Act1.class);
+        startActivity(intent);
     }
 }
