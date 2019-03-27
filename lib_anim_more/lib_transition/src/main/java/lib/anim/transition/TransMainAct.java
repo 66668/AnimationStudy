@@ -8,13 +8,15 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import lib.anim.transition.demo1.Trans1Act;
+import lib.anim.transition.demo3.Demo3StyleAct;
+import lib.anim.transition.demo3.Demo3codeAct;
+import lib.anim.transition.demo3.Demo3xmlAct;
 import lib.base.sjy.adpater.MainAdapter;
 
 /**
@@ -47,6 +49,9 @@ public class TransMainAct extends AppCompatActivity {
         //
         data.add("Act切换动画-方式1：overridePendingTransition");
         data.add("Act切换动画-方式2：sytle-windowAnimationStyle");
+        data.add("Act切换动画-方式3-1--sytle方式--windowContentTransitions");
+        data.add("Act切换动画-方式3-2--xml方式");
+        data.add("Act切换动画-方式3-3--code方式");
         //
         adapter = new MainAdapter(this);
         adapter.setDatas(data);
@@ -67,16 +72,16 @@ public class TransMainAct extends AppCompatActivity {
                         startToTrans1();
                         break;
                     case 1:
-                        startToStyle();
+                        startToStyle2();
                         break;
                     case 2:
-                        startToProperty();
+                        startToTrans_style();
                         break;
                     case 3:
-                        startToRippleEffect();
+                        startToTrans_xml();
                         break;
                     case 4:
-                        startToReveal();
+                        startToTrans_code();
                         break;
                     case 5:
                         startToViewStateChange();
@@ -96,24 +101,24 @@ public class TransMainAct extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void startToStyle() {
+    private void startToStyle2() {
         Intent intent = new Intent(TransMainAct.this, Demo2MainAct.class);
         startActivity(intent);
     }
 
-    private void startToProperty() {
-//        Intent intent = new Intent(MainAct.this, MainAct.class);
-//        startActivity(intent);
+    private void startToTrans_style() {
+        Intent intent = new Intent(TransMainAct.this, Demo3StyleAct.class);
+        startActivity(intent);
     }
 
-    private void startToRippleEffect() {
-//        Intent intent = new Intent(MainAct.this, REMainActivity.class);
-//        startActivity(intent);
+    private void startToTrans_xml() {
+        Intent intent = new Intent(TransMainAct.this, Demo3xmlAct.class);
+        startActivity(intent);
     }
 
-    private void startToReveal() {
-//        Intent intent = new Intent(MainAct.this, CRMainAct.class);
-//        startActivity(intent);
+    private void startToTrans_code() {
+        Intent intent = new Intent(TransMainAct.this, Demo3codeAct.class);
+        startActivity(intent);
     }
 
     private void startToViewStateChange() {

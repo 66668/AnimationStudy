@@ -182,6 +182,7 @@ xml使用示例：
 (原文：https://developer.android.google.cn/reference/android/transition/Transition)
 | java 类名 |类关系|描述信息 |
 | :-----: | :------- | :----- |
+| :-----: | :------- | :----- |
 
 
 参考 https://blog.csdn.net/linyouhui6/article/details/80944112

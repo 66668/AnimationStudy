@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!--转场动画-act切换之sytle样式-->
+    <!--1转场动画-act切换之sytle样式：windowAnimationStyle-->
 
     <!--方式1：-->
     <style name="Left_style" parent="Theme.AppCompat.Light.NoActionBar">
@@ -66,5 +66,18 @@
         <item name="android:windowExitAnimation">@anim/slide_out_alpha</item>
     </style>
 
+    <!--2转场动画-act切换之sytle样式：windowContentTransitions-->
+
+    <style name="trans_alpha_demo3" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- enable window content transitions -->
+        <item name="android:windowContentTransitions">true</item>
+
+        <!-- specify enter and exit transitions -->
+        <!-- options are: explode, slide, fade -->
+        <item name="android:windowEnterTransition">@transition/demo3_fade_01</item>
+        <item name="android:windowExitTransition">@transition/demo3_slide_01</item>
+        <item name="android:windowReenterTransition">@transition/demo3_slide_01</item>
+        <item name="android:windowReturnTransition">@transition/demo3_fade_01</item>
+    </style>
 
 </resources>

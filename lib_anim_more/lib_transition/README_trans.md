@@ -173,6 +173,121 @@ leftDemo_anim添加**parent="@android:style/Animation.Translucent"**（使用par
  2. xml方式
  3. code方式
  
+### 在 style 中设置
+
+在 style 中添加 `android:windowContentTransitions` 属性启用窗口内容转换( Material-theme 应用默认为 true )，
+指定该 Activity 的 Transition
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- enable window content transitions -->
+        <item name="android:windowContentTransitions">true</item>
+        
+        <!-- specify enter and exit transitions -->
+        <!-- options are: explode, slide, fade -->
+        <item name="android:windowEnterTransition">@transition/activity_fade</item>
+        <item name="android:windowExitTransition">@transition/activity_slide</item>
+    </style>
+
+### xml 中创建
+
+过渡效果定义在 xml 中，目录是 res/transition
+
+`res/transition/activity_fade.xml`
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <fade xmlns:android="http://schemas.android.com/apk/res/"
+        android:duration="1000"/>
+        
+`res/transition/activity_slide.xml`
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <slide xmlns:android="http://schemas.android.com/apk/res/"
+        android:duration="1000"/>
+
+要使用这些 xml 中定义的过渡动画，你需要使用 TransitionInflater 来实例化它们。
+
+`MainActivity.java`
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_transition);
+        setupWindowAnimations();
+    }
+
+    private void setupWindowAnimations() {
+        Slide slide = TransitionInflater.from(this).inflateTransition(R.transition.activity_slide);
+        getWindow().setExitTransition(slide);
+    }
+
+`TransitionActivity.java`
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_transition);
+        setupWindowAnimations();
+    }
+
+    private void setupWindowAnimations() {
+        Fade fade = TransitionInflater.from(this).inflateTransition(R.transition.activity_fade);
+        getWindow().setEnterTransition(fade);
+    }
+
+### 在代码中创建
+
+`MainActivity.java`
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_transition);
+        setupWindowAnimations();
+    }
+
+    private void setupWindowAnimations() {
+        Slide slide = new Slide();
+        slide.setDuration(1000);
+        getWindow().setExitTransition(slide);
+    }
+
+`TransitionActivity.java`
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_transition);
+        setupWindowAnimations();
+    }
+
+    private void setupWindowAnimations() {
+        Fade fade = new Fade();
+        fade.setDuration(1000);
+        getWindow().setEnterTransition(fade);
+    }
+不管哪种创建方法都会产生一样的效果:
+
+**那么这里面一步一步的到底发生了什么:**  
+
+1. Activity A 启动 Activity B
+2. Transition Framework 发现 A 中定义了Exit Transition (slide) 然后就会对它的所有可见的View使用这个过渡动画.
+3. Transition Framework 发现 B 中定义了Enter Transition (fade) 然后机会对它所有可见的Views使用这个过渡动画.
+4. On Back Pressed(按返回键) Transition Framework 会执行把 Enter and Exit 过渡动画反过来执行(但是如果定义了 
+returnTransition 和 reenterTransition，那么就会执行这些定义的动画)
+
+> 译注:
+> * Exit Transition: 可以理解为 activity 进入后台的过渡动画
+> * Enter Transition: 可以理解为创建 activity 并显示时的过渡动画
+> * Return Transition:可以理解为销毁 activity 时的过渡动画
+> * Reenter Transition: 可以理解为 activity 从后台进入前台时的过渡动画
+> * 要使这些过渡动画生效，我们需要调用 `startActivity(intent，bundle)` 方法来启动 Activity。bundle 需要通过 
+`ActivityOptionsCompat.makeSceneTransitionAnimation().toBundle()` 的方式来生成
+ 
+  
+ ## 实现 Activity 的共享动画
+ 
+ 
  
  
     
