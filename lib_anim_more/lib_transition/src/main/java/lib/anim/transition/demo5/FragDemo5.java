@@ -8,11 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import lib.anim.transition.R;
-import lib.anim.transition.R2;
 import lib.anim.transition.demo4.SEDemo4Act2;
 
 /**
@@ -21,10 +17,8 @@ import lib.anim.transition.demo4.SEDemo4Act2;
 public class FragDemo5 extends AppCompatActivity {
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
-    @BindView(R2.id.btn_trans)
     Button btn_trans;
 
-    @BindView(R2.id.img)
     ImageView img;
 
 
@@ -32,20 +26,22 @@ public class FragDemo5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_demo41);
-        ButterKnife.bind(this);
+        img = findViewById(R.id.img);
+        findViewById(R.id.btn_trans).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FragDemo5.this, SEDemo4Act2.class);
+
+                View sharedView = img;
+                String transitionName = "sjy_01";
+
+                ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(FragDemo5.this, sharedView, transitionName);
+                startActivity(intent, transitionActivityOptions.toBundle());
+
+                FragDemo5.this.finish();
+            }
+        });
     }
 
-    @OnClick(R2.id.btn_trans)
-    public void onCLick(View view) {
-        Intent intent = new Intent(FragDemo5.this, SEDemo4Act2.class);
-
-        View sharedView = img;
-        String transitionName = "sjy_01";
-
-        ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(FragDemo5.this, sharedView, transitionName);
-        startActivity(intent, transitionActivityOptions.toBundle());
-
-        this.finish();
-    }
 
 }
