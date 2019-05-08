@@ -10,10 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lib.base.sjy.R;
-import lib.base.sjy.R2;
 
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyHolder> {
@@ -60,12 +57,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyHolder> {
     }
 
     class MyHolder extends RecyclerView.ViewHolder {
-        @BindView(R2.id.tv_show)
         TextView tv_name;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            tv_name = itemView.findViewById(R.id.tv_show);
         }
 
     }

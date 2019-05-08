@@ -10,8 +10,6 @@ import android.transition.Fade;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lib.anim.transition.demo2.DemoAlphaAct;
 import lib.anim.transition.demo2.DemoBottomAct;
 import lib.anim.transition.demo2.DemoLeftAct;
@@ -26,7 +24,6 @@ public class Demo3MainAct extends AppCompatActivity {
     //-----------------------------控件--------------------------------
 
 
-    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
 
     Fade fade;
@@ -39,7 +36,7 @@ public class Demo3MainAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_style1);
-        ButterKnife.bind(this);
+        recyclerView = findViewById(R.id.recyclerView);
         initView();
     }
 

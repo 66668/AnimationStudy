@@ -11,25 +11,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 /**
  * LayoutController
  */
-public class TAMyControllerAct extends AppCompatActivity {
+public class TAMyControllerAct extends AppCompatActivity implements View.OnClickListener{
 
     //-----------------------------控件--------------------------------
 
-    @BindView(R2.id.floatingActionButton)
     FloatingActionButton floatingActionButton;
 
 
-    @BindView(R2.id.linear_container)
     LinearLayout linearLayout;
 
-    @BindView(R2.id.img1)
     ImageView img1;
 
 
@@ -44,11 +37,16 @@ public class TAMyControllerAct extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_controller2);
-        ButterKnife.bind(this);
+        floatingActionButton = findViewById(R.id.floatingActionButton);
+        linearLayout = findViewById(R.id.linear_container);
+        img1 = findViewById(R.id.img1);
+
+        floatingActionButton.setOnClickListener(this);
+        linearLayout.setOnClickListener(this);
+        img1.setOnClickListener(this);
     }
 
-    @OnClick({R2.id.floatingActionButton, R2.id.img1, R2.id.linear_container})
-    public void onClicks(View view) {
+    public void onClick(View view) {
         if (view == floatingActionButton) {
             if (tripFlag) {
                 //创建一个LayoutAnimationController对象

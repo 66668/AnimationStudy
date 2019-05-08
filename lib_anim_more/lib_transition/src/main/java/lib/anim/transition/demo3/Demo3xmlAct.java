@@ -9,34 +9,30 @@ import android.transition.TransitionInflater;
 import android.view.View;
 import android.widget.Button;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import lib.anim.transition.R;
-import lib.anim.transition.R2;
 
 /**
  * xml样式
  */
 public class Demo3xmlAct extends AppCompatActivity {
     //-----------------------------控件--------------------------------
-    //RecyclerView-v7
-    @BindView(R2.id.btn_trans)
     Button btn_trans;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_demo31);
-        ButterKnife.bind(this);
+
+        findViewById(R.id.btn_trans).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Demo3xmlAct.this, Demo3xmlAct2.class));
+                Demo3xmlAct.this.finish();
+            }
+        });
         setupWindowAnimations();
     }
 
-    @OnClick(R2.id.btn_trans)
-    public void onCLick(View view) {
-        startActivity(new Intent(Demo3xmlAct.this, Demo3xmlAct2.class));
-        this.finish();
-    }
 
     private void setupWindowAnimations() {
         Fade fade = (Fade) TransitionInflater.from(this).inflateTransition(R.transition.demo3_fade_01);

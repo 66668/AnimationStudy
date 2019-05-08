@@ -12,23 +12,17 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import lib.anim.transition.R;
-import lib.anim.transition.R2;
 import lib.base.sjy.adpater.MainAdapter;
 
 /**
  * overridePendingTransition方式
  */
-public class Trans1Act extends AppCompatActivity {
+public class Trans1Act extends AppCompatActivity implements View.OnClickListener{
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
-    @BindView(R2.id.btn_trans)
     Button btn_trans;
 
-    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
 
     private List<String> data = new ArrayList<>();
@@ -39,7 +33,9 @@ public class Trans1Act extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_transdemo1);
-        ButterKnife.bind(this);
+        recyclerView = findViewById(R.id.recyclerView);
+        btn_trans = findViewById(R.id.btn_trans);
+        btn_trans.setOnClickListener(this);
         initView();
     }
 
@@ -102,7 +98,6 @@ public class Trans1Act extends AppCompatActivity {
     }
 
 
-    @OnClick(R2.id.btn_trans)
     public void onClick(View view) {
         //在调用了 startActivity 方法之后立即调用 overridePendingTransition 方法
         Intent intent = new Intent(Trans1Act.this, Trans2Act.class);

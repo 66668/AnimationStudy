@@ -15,10 +15,7 @@ import android.view.ViewAnimationUtils;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lib.circular.reveal.R;
-import lib.circular.reveal.R2;
 
 /**
  * demo1: appbarlayout使用reveal
@@ -26,16 +23,12 @@ import lib.circular.reveal.R2;
 public class Demo1_AppbarRevealAct extends AppCompatActivity {
 
     //-----------------------------控件--------------------------------
-    @BindView(R2.id.fab)
     FloatingActionButton btn;
     //
-    @BindView(R2.id.view_puppet)
     ImageView img;
     //
-    @BindView(R2.id.toolbar)
     Toolbar toolbar;
     //
-    @BindView(R2.id.toolbar_layout)
     CollapsingToolbarLayout toolbar_layout;
 
     //-------------------------------------------------------------
@@ -45,7 +38,10 @@ public class Demo1_AppbarRevealAct extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_appbar_demo1);
-        ButterKnife.bind(this);
+        btn = findViewById(R.id.fab);
+        img = findViewById(R.id.view_puppet);
+        toolbar = findViewById(R.id.toolbar);
+        toolbar_layout = findViewById(R.id.toolbar_layout);
         initView();
     }
 

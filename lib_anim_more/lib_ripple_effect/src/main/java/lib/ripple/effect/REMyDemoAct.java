@@ -5,28 +5,18 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * 触摸反馈 自定义样式
  */
 public class REMyDemoAct extends AppCompatActivity {
 
-//    @BindView(R2.id.tv_01)
-//    TextView tv_01;
-//
-//    @BindView(R2.id.tv_02)
-//    TextView tv_02;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_my_demo);
-        ButterKnife.bind(this);
     }
 
 //    @OnClick({R2.id.tv_01, R2.id.tv_02,})

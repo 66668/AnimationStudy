@@ -6,37 +6,23 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
-import android.view.animation.Animation;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import lib.base.sjy.adpater.MainAdapter;
 import lib.circular.reveal.R;
-import lib.circular.reveal.R2;
 
 
 public class Demo1_LayoutRevealAct extends AppCompatActivity {
 
     //-----------------------------控件--------------------------------
-    @BindView(R2.id.toolbar)
     Toolbar toolbar;
 
 
-    @BindView(R2.id.fab)
     FloatingActionButton fab;
 
-    @BindView(R2.id.view_puppet)
     View mPuppet;
 
     //-------------------------------------------------------------
@@ -46,7 +32,9 @@ public class Demo1_LayoutRevealAct extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_layout_demo1);
-        ButterKnife.bind(this);
+        toolbar = findViewById(R.id.toolbar);
+        fab = findViewById(R.id.fab);
+        mPuppet = findViewById(R.id.view_puppet);
         initToolbar();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

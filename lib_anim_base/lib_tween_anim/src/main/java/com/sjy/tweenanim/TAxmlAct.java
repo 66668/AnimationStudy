@@ -10,40 +10,25 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 /**
  * Tween Animation xml样式
  */
-public class TAxmlAct extends AppCompatActivity {
-    @BindView(R2.id.img)
+public class TAxmlAct extends AppCompatActivity implements View.OnClickListener {
     ImageView img;
-    @BindView(R2.id.btn_translate_ud)
     Button btn_translate;
-    @BindView(R2.id.btn_translate_lr)
     Button btn_translate_lr;
-    @BindView(R2.id.btn_rotate_r)
     Button btn_rotate_r;
 
-    @BindView(R2.id.btn_rotate_l)
     Button btn_rotate_l;
 
-    @BindView(R2.id.btn_scale_big)
     Button btn_scale_big;
 
-    @BindView(R2.id.btn_scale_small)
     Button btn_scale_small;
 
-    @BindView(R2.id.btn_alpha_1)
     Button btn_alpha_1;
 
-    @BindView(R2.id.btn_alpha_0)
     Button btn_alpha_0;
 
-
-    @BindView(R2.id.btn_demo1)
     Button btn_demo1;
 
 
@@ -51,12 +36,34 @@ public class TAxmlAct extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_xmldemo);
-        ButterKnife.bind(this);
     }
 
-    @OnClick({R2.id.btn_translate_ud, R2.id.btn_translate_lr, R2.id.btn_rotate_r, R2.id.btn_rotate_l,
-            R2.id.btn_scale_big, R2.id.btn_scale_small, R2.id.btn_alpha_1, R2.id.btn_alpha_0, R2.id.btn_demo1})
-    public void OnClicks(View view) {
+    private void initMyView() {
+        img = findViewById(R.id.img);
+        btn_translate = findViewById(R.id.btn_translate_ud);
+        btn_translate_lr = findViewById(R.id.btn_translate_lr);
+        btn_rotate_r = findViewById(R.id.btn_rotate_r);
+        btn_rotate_l = findViewById(R.id.btn_rotate_l);
+        btn_scale_big = findViewById(R.id.btn_scale_big);
+        btn_scale_small = findViewById(R.id.btn_scale_small);
+        btn_alpha_1 = findViewById(R.id.btn_alpha_1);
+        btn_alpha_0 = findViewById(R.id.btn_alpha_0);
+        btn_demo1 = findViewById(R.id.btn_demo1);
+
+        btn_translate.setOnClickListener(this);
+        btn_translate_lr.setOnClickListener(this);
+        btn_rotate_r.setOnClickListener(this);
+        btn_rotate_l.setOnClickListener(this);
+        btn_scale_big.setOnClickListener(this);
+        btn_scale_small.setOnClickListener(this);
+        btn_alpha_1.setOnClickListener(this);
+        btn_alpha_0.setOnClickListener(this);
+        btn_demo1.setOnClickListener(this);
+
+    }
+
+
+    public void onClick(View view) {
         if (view == btn_translate) {
             translateUpDown();
         } else if (view == btn_translate_lr) {

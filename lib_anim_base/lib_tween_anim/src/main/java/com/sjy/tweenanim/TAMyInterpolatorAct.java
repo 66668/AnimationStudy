@@ -23,158 +23,90 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 /**
  * Tween Animation 插值器三详解之三：自定义
  * 本例是code方式+xml方式
  */
-public class TAMyInterpolatorAct extends AppCompatActivity {
+public class TAMyInterpolatorAct extends AppCompatActivity implements View.OnClickListener {
 
-    @BindView(R2.id.img)
     ImageView img;
-    @BindView(R2.id.btn_my_accelerate)
     Button btn_my_accelerate;
-    @BindView(R2.id.btn_my_anticipate)
     Button btn_my_anticipate;
-    @BindView(R2.id.btn_my_anticipate_overshoot)
     Button btn_my_anticipate_overshoot;
-    @BindView(R2.id.btn_my_cycle)
     Button btn_my_cycle;
-    @BindView(R2.id.btn_my_overshoot_interpolator)
     Button btn_my_overshoot_interpolator;
 
     //1
-    @BindView(R2.id.btn_translate_interpolator_a_d)
     Button btn_translate_interpolator_a_d;
-    @BindView(R2.id.btn_rotate_interpolator_a_d)
     Button btn_rotate_interpolator_a_d;
-    @BindView(R2.id.btn_scale_interpolator_a_d)
     Button btn_scale_interpolator_a_d;
-    @BindView(R2.id.btn_alpha_interpolator_a_d)
     Button btn_alpha_interpolator_a_d;
-    @BindView(R2.id.btn_interpolator_a_d)
     Button btn_interpolator_a_d;
 
     //2
-    @BindView(R2.id.btn_translate_interpolator_a)
     Button btn_translate_interpolator_a;
-    @BindView(R2.id.btn_rotate_interpolator_a)
     Button btn_rotate_interpolator_a;
-    @BindView(R2.id.btn_scale_interpolator_a)
     Button btn_scale_interpolator_a;
-    @BindView(R2.id.btn_alpha_interpolator_a)
     Button btn_alpha_interpolator_a;
-    @BindView(R2.id.btn_interpolator_a)
     Button btn_interpolator_a;
 
     //3
-    @BindView(R2.id.btn_translate_interpolator_ant)
     Button btn_translate_interpolator_ant;
-    @BindView(R2.id.btn_rotate_interpolator_ant)
     Button btn_rotate_interpolator_ant;
-    @BindView(R2.id.btn_scale_interpolator_ant)
     Button btn_scale_interpolator_ant;
-    @BindView(R2.id.btn_alpha_interpolator_ant)
     Button btn_alpha_interpolator_ant;
-    @BindView(R2.id.btn_interpolator_ant)
     Button btn_interpolator_ant;
 
     //4
-    @BindView(R2.id.btn_translate_interpolator_ant_o)
     Button btn_translate_interpolator_ant_o;
-    @BindView(R2.id.btn_rotate_interpolator_ant_o)
     Button btn_rotate_interpolator_ant_o;
-    @BindView(R2.id.btn_scale_interpolator_ant_o)
     Button btn_scale_interpolator_ant_o;
-    @BindView(R2.id.btn_alpha_interpolator_ant_o)
     Button btn_alpha_interpolator_ant_o;
-    @BindView(R2.id.btn_interpolator_ant_o)
     Button btn_interpolator_ant_o;
 
     //5
-    @BindView(R2.id.btn_translate_interpolator_c)
     Button btn_translate_interpolator_c;
-    @BindView(R2.id.btn_rotate_interpolator_c)
     Button btn_rotate_interpolator_c;
-    @BindView(R2.id.btn_scale_interpolator_c)
     Button btn_scale_interpolator_c;
-    @BindView(R2.id.btn_alpha_interpolator_c)
     Button btn_alpha_interpolator_c;
-    @BindView(R2.id.btn_interpolator_c)
     Button btn_interpolator_c;
 
     //6
-    @BindView(R2.id.btn_translate_interpolator_b)
     Button btn_translate_interpolator_b;
-    @BindView(R2.id.btn_rotate_interpolator_b)
     Button btn_rotate_interpolator_b;
-    @BindView(R2.id.btn_scale_interpolator_b)
     Button btn_scale_interpolator_b;
-    @BindView(R2.id.btn_alpha_interpolator_b)
     Button btn_alpha_interpolator_b;
-    @BindView(R2.id.btn_interpolator_b)
     Button btn_interpolator_b;
 
     //7
-    @BindView(R2.id.btn_translate_interpolator_d)
     Button btn_translate_interpolator_d;
-    @BindView(R2.id.btn_rotate_interpolator_d)
     Button btn_rotate_interpolator_d;
-    @BindView(R2.id.btn_scale_interpolator_d)
     Button btn_scale_interpolator_d;
-    @BindView(R2.id.btn_alpha_interpolator_d)
     Button btn_alpha_interpolator_d;
-    @BindView(R2.id.btn_interpolator_d)
     Button btn_interpolator_d;
 
     //8
-    @BindView(R2.id.btn_translate_interpolator_l)
     Button btn_translate_interpolator_l;
-    @BindView(R2.id.btn_rotate_interpolator_l)
     Button btn_rotate_interpolator_l;
-    @BindView(R2.id.btn_scale_interpolator_l)
     Button btn_scale_interpolator_l;
-    @BindView(R2.id.btn_alpha_interpolator_l)
     Button btn_alpha_interpolator_l;
-    @BindView(R2.id.btn_interpolator_l)
     Button btn_interpolator_l;
 
     //9
-    @BindView(R2.id.btn_translate_interpolator_o)
     Button btn_translate_interpolator_o;
-    @BindView(R2.id.btn_rotate_interpolator_o)
     Button btn_rotate_interpolator_o;
-    @BindView(R2.id.btn_scale_interpolator_o)
     Button btn_scale_interpolator_o;
-    @BindView(R2.id.btn_alpha_interpolator_o)
     Button btn_alpha_interpolator_o;
-    @BindView(R2.id.btn_interpolator_o)
     Button btn_interpolator_o;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_interpolator_my);
-        ButterKnife.bind(this);
+        initMyView();
     }
 
-    @OnClick({
-            R2.id.btn_my_accelerate, R2.id.btn_my_anticipate, R2.id.btn_my_anticipate_overshoot,
-            R2.id.btn_my_cycle, R2.id.btn_my_overshoot_interpolator,
-            R2.id.btn_translate_interpolator_a_d, R2.id.btn_rotate_interpolator_a_d, R2.id.btn_scale_interpolator_a_d, R2.id.btn_alpha_interpolator_a_d, R2.id.btn_interpolator_a_d,
-            R2.id.btn_translate_interpolator_a, R2.id.btn_rotate_interpolator_a, R2.id.btn_scale_interpolator_a, R2.id.btn_alpha_interpolator_a, R2.id.btn_interpolator_a,
-            R2.id.btn_translate_interpolator_b, R2.id.btn_rotate_interpolator_b, R2.id.btn_scale_interpolator_b, R2.id.btn_alpha_interpolator_b, R2.id.btn_interpolator_b,
-            R2.id.btn_translate_interpolator_c, R2.id.btn_rotate_interpolator_c, R2.id.btn_scale_interpolator_c, R2.id.btn_alpha_interpolator_c, R2.id.btn_interpolator_c,
-            R2.id.btn_translate_interpolator_d, R2.id.btn_rotate_interpolator_d, R2.id.btn_scale_interpolator_d, R2.id.btn_alpha_interpolator_d, R2.id.btn_interpolator_d,
-            R2.id.btn_translate_interpolator_l, R2.id.btn_rotate_interpolator_l, R2.id.btn_scale_interpolator_l, R2.id.btn_alpha_interpolator_l, R2.id.btn_interpolator_l,
-            R2.id.btn_translate_interpolator_o, R2.id.btn_rotate_interpolator_o, R2.id.btn_scale_interpolator_o, R2.id.btn_alpha_interpolator_o, R2.id.btn_interpolator_o,
-            R2.id.btn_translate_interpolator_ant, R2.id.btn_rotate_interpolator_ant, R2.id.btn_scale_interpolator_ant, R2.id.btn_alpha_interpolator_ant, R2.id.btn_interpolator_ant,
-            R2.id.btn_translate_interpolator_ant_o, R2.id.btn_rotate_interpolator_ant_o, R2.id.btn_scale_interpolator_ant_o, R2.id.btn_alpha_interpolator_ant_o, R2.id.btn_interpolator_ant_o,
-    })
-    public void OnClicks(View view) {
+    public void onClick(View view) {
 
         if (view == btn_translate_interpolator_a_d) {
             AccelerateDecelerateInterpolator_translate();
@@ -1684,4 +1616,127 @@ public class TAMyInterpolatorAct extends AppCompatActivity {
     private int getHeight() {
         return img.getHeight();
     }
+
+    private void initMyView() {
+        img = findViewById(R.id.img);
+
+        //1
+        btn_translate_interpolator_a_d = findViewById(R.id.btn_translate_interpolator_a_d);
+        btn_rotate_interpolator_a_d = findViewById(R.id.btn_rotate_interpolator_a_d);
+        btn_scale_interpolator_a_d = findViewById(R.id.btn_scale_interpolator_a_d);
+        btn_alpha_interpolator_a_d = findViewById(R.id.btn_alpha_interpolator_a_d);
+        btn_interpolator_a_d = findViewById(R.id.btn_interpolator_a_d);
+
+        //2
+        btn_translate_interpolator_a = findViewById(R.id.btn_translate_interpolator_a);
+        btn_rotate_interpolator_a = findViewById(R.id.btn_rotate_interpolator_a);
+        btn_scale_interpolator_a = findViewById(R.id.btn_scale_interpolator_a);
+        btn_alpha_interpolator_a = findViewById(R.id.btn_alpha_interpolator_a);
+        btn_interpolator_a = findViewById(R.id.btn_interpolator_a);
+
+        //3
+        btn_translate_interpolator_b = findViewById(R.id.btn_translate_interpolator_b);
+        btn_rotate_interpolator_b = findViewById(R.id.btn_rotate_interpolator_b);
+        btn_scale_interpolator_b = findViewById(R.id.btn_scale_interpolator_b);
+        btn_alpha_interpolator_b = findViewById(R.id.btn_alpha_interpolator_b);
+        btn_interpolator_b = findViewById(R.id.btn_interpolator_b);
+
+        //4
+        btn_translate_interpolator_c = findViewById(R.id.btn_translate_interpolator_c);
+        btn_rotate_interpolator_c = findViewById(R.id.btn_rotate_interpolator_c);
+        btn_scale_interpolator_c = findViewById(R.id.btn_scale_interpolator_c);
+        btn_alpha_interpolator_c = findViewById(R.id.btn_alpha_interpolator_c);
+        btn_interpolator_c = findViewById(R.id.btn_interpolator_c);
+
+        //5
+        btn_translate_interpolator_d = findViewById(R.id.btn_translate_interpolator_d);
+        btn_rotate_interpolator_d = findViewById(R.id.btn_rotate_interpolator_d);
+        btn_scale_interpolator_d = findViewById(R.id.btn_scale_interpolator_d);
+        btn_alpha_interpolator_d = findViewById(R.id.btn_alpha_interpolator_d);
+        btn_interpolator_d = findViewById(R.id.btn_interpolator_d);
+
+
+        //6
+        btn_translate_interpolator_l = findViewById(R.id.btn_translate_interpolator_l);
+        btn_rotate_interpolator_l = findViewById(R.id.btn_rotate_interpolator_l);
+        btn_scale_interpolator_l = findViewById(R.id.btn_scale_interpolator_l);
+        btn_alpha_interpolator_l = findViewById(R.id.btn_alpha_interpolator_l);
+        btn_interpolator_l = findViewById(R.id.btn_interpolator_l);
+
+        //7
+        btn_translate_interpolator_o = findViewById(R.id.btn_translate_interpolator_o);
+        btn_rotate_interpolator_o = findViewById(R.id.btn_rotate_interpolator_o);
+        btn_scale_interpolator_o = findViewById(R.id.btn_scale_interpolator_o);
+        btn_alpha_interpolator_o = findViewById(R.id.btn_alpha_interpolator_o);
+        btn_interpolator_o = findViewById(R.id.btn_interpolator_o);
+
+        //8
+        btn_translate_interpolator_ant = findViewById(R.id.btn_translate_interpolator_ant);
+        btn_rotate_interpolator_ant = findViewById(R.id.btn_rotate_interpolator_ant);
+        btn_scale_interpolator_ant = findViewById(R.id.btn_scale_interpolator_ant);
+        btn_alpha_interpolator_ant = findViewById(R.id.btn_alpha_interpolator_ant);
+        btn_interpolator_ant = findViewById(R.id.btn_interpolator_ant);
+
+        //9
+        btn_translate_interpolator_ant_o = findViewById(R.id.btn_translate_interpolator_ant_o);
+        btn_rotate_interpolator_ant_o = findViewById(R.id.btn_rotate_interpolator_ant_o);
+        btn_scale_interpolator_ant_o = findViewById(R.id.btn_scale_interpolator_ant_o);
+        btn_alpha_interpolator_ant_o = findViewById(R.id.btn_alpha_interpolator_ant_o);
+        btn_interpolator_ant_o = findViewById(R.id.btn_interpolator_ant_o);
+
+        btn_translate_interpolator_a_d.setOnClickListener(this);
+        btn_rotate_interpolator_a_d.setOnClickListener(this);
+        btn_scale_interpolator_a_d.setOnClickListener(this);
+        btn_alpha_interpolator_a_d.setOnClickListener(this);
+        btn_interpolator_a_d.setOnClickListener(this);
+
+        btn_translate_interpolator_a.setOnClickListener(this);
+        btn_translate_interpolator_b.setOnClickListener(this);
+        btn_translate_interpolator_c.setOnClickListener(this);
+        btn_translate_interpolator_d.setOnClickListener(this);
+        btn_translate_interpolator_l.setOnClickListener(this);
+        btn_translate_interpolator_o.setOnClickListener(this);
+        btn_translate_interpolator_ant.setOnClickListener(this);
+        btn_translate_interpolator_ant_o.setOnClickListener(this);
+
+        btn_rotate_interpolator_a.setOnClickListener(this);
+        btn_rotate_interpolator_b.setOnClickListener(this);
+        btn_rotate_interpolator_c.setOnClickListener(this);
+        btn_rotate_interpolator_d.setOnClickListener(this);
+        btn_rotate_interpolator_l.setOnClickListener(this);
+        btn_rotate_interpolator_o.setOnClickListener(this);
+        btn_rotate_interpolator_ant.setOnClickListener(this);
+        btn_rotate_interpolator_ant_o.setOnClickListener(this);
+
+
+        btn_scale_interpolator_a.setOnClickListener(this);
+        btn_scale_interpolator_b.setOnClickListener(this);
+        btn_scale_interpolator_c.setOnClickListener(this);
+        btn_scale_interpolator_d.setOnClickListener(this);
+        btn_scale_interpolator_l.setOnClickListener(this);
+        btn_scale_interpolator_o.setOnClickListener(this);
+        btn_scale_interpolator_ant.setOnClickListener(this);
+        btn_scale_interpolator_ant_o.setOnClickListener(this);
+
+        btn_alpha_interpolator_a.setOnClickListener(this);
+        btn_alpha_interpolator_b.setOnClickListener(this);
+        btn_alpha_interpolator_c.setOnClickListener(this);
+        btn_alpha_interpolator_d.setOnClickListener(this);
+        btn_alpha_interpolator_l.setOnClickListener(this);
+        btn_alpha_interpolator_o.setOnClickListener(this);
+        btn_alpha_interpolator_ant.setOnClickListener(this);
+        btn_alpha_interpolator_ant_o.setOnClickListener(this);
+
+        btn_interpolator_a.setOnClickListener(this);
+        btn_interpolator_b.setOnClickListener(this);
+        btn_interpolator_c.setOnClickListener(this);
+        btn_interpolator_d.setOnClickListener(this);
+        btn_interpolator_l.setOnClickListener(this);
+        btn_interpolator_o.setOnClickListener(this);
+        btn_interpolator_ant.setOnClickListener(this);
+        btn_interpolator_ant_o.setOnClickListener(this);
+
+
+    }
+
 }

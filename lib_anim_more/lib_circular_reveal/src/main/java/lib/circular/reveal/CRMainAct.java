@@ -6,15 +6,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.ViewAnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lib.base.sjy.adpater.MainAdapter;
 import lib.circular.reveal.demo1.Demo1_AppbarRevealAct;
 import lib.circular.reveal.demo1.Demo1_LayoutRevealAct;
@@ -24,10 +21,8 @@ public class CRMainAct extends AppCompatActivity {
 
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
-    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
 
-    @BindView(R2.id.tv_titile)
     TextView tv_titile;
 
     //-------------------------------------------------------------
@@ -38,7 +33,10 @@ public class CRMainAct extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_main);
-        ButterKnife.bind(this);
+        //
+        recyclerView = findViewById(R.id.recyclerView);
+        tv_titile = findViewById(R.id.tv_titile);
+
         tv_titile.setText("揭露动画");
         initView();
     }

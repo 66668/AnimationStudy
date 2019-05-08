@@ -50,13 +50,17 @@ android3.0之前，主要包括两种动画方式：**补间动画**（Tween Ani
 4. [Activity transitions  转场动画(共享元素) 详解跳转](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_transition/README_trans.md);
 
 
-属性动画 翻译官方文档：https://www.jianshu.com/p/51f6576cf20e
+属性动画 翻译官方文档：
+
+https://www.jianshu.com/p/51f6576cf20e
 
 
 开源动画：
+
 https://github.com/ybq/Android-SpinKit
 
 参考：
+
 https://www.jianshu.com/p/0eb89d43eea4
 
 https://github.com/lgvalle/Material-Animations

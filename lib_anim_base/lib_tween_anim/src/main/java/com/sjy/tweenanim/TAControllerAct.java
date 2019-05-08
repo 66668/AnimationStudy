@@ -13,7 +13,6 @@ import android.view.animation.GridLayoutAnimationController;
 import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
@@ -23,28 +22,21 @@ import com.sjy.tweenanim.adpater.GridAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import lib.base.sjy.adpater.MainAdapter;
 
 /**
  * LayoutController
  */
-public class TAControllerAct extends AppCompatActivity {
+public class TAControllerAct extends AppCompatActivity implements View.OnClickListener{
 
     //-----------------------------控件--------------------------------
 
-    @BindView(R2.id.btn_recylcerView)
     Button btn_recylcerView;
 
-    @BindView(R2.id.btn_recylcerView2)
     Button btn_recylcerView2;
 
-    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
 
-    @BindView(R2.id.gridView)
     GridView gridView;
 
 
@@ -56,11 +48,16 @@ public class TAControllerAct extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_controller);
-        ButterKnife.bind(this);
+        btn_recylcerView = findViewById(R.id.btn_recylcerView);
+        btn_recylcerView2 = findViewById(R.id.btn_recylcerView2);
+        recyclerView = findViewById(R.id.recyclerView);
+        gridView = findViewById(R.id.gridView);
+
+        btn_recylcerView.setOnClickListener(this);
+        btn_recylcerView2.setOnClickListener(this);
     }
 
-    @OnClick({R2.id.btn_recylcerView, R2.id.btn_recylcerView2})
-    public void onClicks(View view) {
+    public void onClick(View view) {
         if (view == btn_recylcerView) {
             recyclerView.setVisibility(View.VISIBLE);
             gridView.setVisibility(View.GONE);

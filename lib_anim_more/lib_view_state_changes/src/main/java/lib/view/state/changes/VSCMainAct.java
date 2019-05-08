@@ -10,8 +10,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lib.base.sjy.adpater.MainAdapter;
 
 
@@ -20,19 +18,16 @@ public class VSCMainAct extends AppCompatActivity {
     /**
      * xml方式 引用
      */
-    @BindView(R2.id.tv_01)
     TextView tv_01;
 
     /**
      * code方式 引用
      */
-    @BindView(R2.id.tv_02)
     TextView tv_02;
 
     /**
      * xml调用动画list
      */
-    @BindView(R2.id.img_01)
     ImageView img_01;
 
     //-------------------------------------------------------------
@@ -43,7 +38,10 @@ public class VSCMainAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_demo1);
-        ButterKnife.bind(this);
+        tv_01 = findViewById(R.id.tv_01);
+        tv_02 = findViewById(R.id.tv_02);
+        img_01 = findViewById(R.id.img_01);
+
         initStateListAnimator();
     }
 

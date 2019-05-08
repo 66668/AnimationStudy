@@ -15,97 +15,68 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 /**
  * 属性动画 特有动画效果
  */
-public class PtSpDemo1Act extends AppCompatActivity {
+public class PtSpDemo1Act extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = "SJY";
 
     //-----------------------------控件--------------------------------
-    @BindView(R2.id.img)
     ImageView img;
 
     //ValueAnimator xml示例
-    @BindView(R2.id.btn_valueAnim_trans)
     Button btn_valueAnim_trans;
 
-    @BindView(R2.id.btn_valueAnim_rotate)
     Button btn_valueAnim_rotate;
 
-    @BindView(R2.id.btn_valueAnim_scale)
     Button btn_valueAnim_scale;
 
-    @BindView(R2.id.btn_valueAnim_alpha)
     Button btn_valueAnim_alpha;
 
-    @BindView(R2.id.btn_valueAnim_all)
     Button btn_valueAnim_all;
 
 
-    @BindView(R2.id.btn_valueAnim_trans_1)
     Button btn_valueAnim_trans_1;
 
-    @BindView(R2.id.btn_valueAnim_rotate_1)
     Button btn_valueAnim_rotate_1;
 
-    @BindView(R2.id.btn_valueAnim_scale_1)
     Button btn_valueAnim_scale_1;
 
-    @BindView(R2.id.btn_valueAnim_alpha_1)
     Button btn_valueAnim_alpha_1;
 
-    @BindView(R2.id.btn_valueAnim_all_1)
     Button btn_valueAnim_all_1;
 
 
     //ValueAnimator code示例
 
-    @BindView(R2.id.btn_valueAnim_trans_2)
     Button btn_valueAnim_trans_2;
 
-    @BindView(R2.id.btn_valueAnim_rotate_2)
     Button btn_valueAnim_rotate_2;
 
-    @BindView(R2.id.btn_valueAnim_scale_2)
     Button btn_valueAnim_scale_2;
 
-    @BindView(R2.id.btn_valueAnim_alpha_2)
     Button btn_valueAnim_alpha_2;
 
-    @BindView(R2.id.btn_valueAnim_all_2)
     Button btn_valueAnim_all_2;
 
 
-    @BindView(R2.id.btn_valueAnim_trans_3)
     Button btn_valueAnim_trans_3;
 
-    @BindView(R2.id.btn_valueAnim_rotate_3)
     Button btn_valueAnim_rotate_3;
 
-    @BindView(R2.id.btn_valueAnim_scale_3)
     Button btn_valueAnim_scale_3;
 
-    @BindView(R2.id.btn_valueAnim_all_3)
     Button btn_valueAnim_all_3;
 
 
-    @BindView(R2.id.btn_valueAnim_trans_4)
     Button btn_valueAnim_trans_4;
 
-    @BindView(R2.id.btn_valueAnim_rotate_4)
     Button btn_valueAnim_rotate_4;
 
-    @BindView(R2.id.btn_valueAnim_scale_4)
     Button btn_valueAnim_scale_4;
 
-    @BindView(R2.id.btn_valueAnim_alpha_4)
     Button btn_valueAnim_alpha_4;
 
-    @BindView(R2.id.btn_valueAnim_all_4)
     Button btn_valueAnim_all_4;
 
 
@@ -116,8 +87,62 @@ public class PtSpDemo1Act extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_base);
-        ButterKnife.bind(this);
+        initMyView();
         Log.d(TAG, "Demo1Act img.getLayoutParams().width=" + img.getLayoutParams().width);
+    }
+
+    private void initMyView() {
+        img = findViewById(R.id.img);
+        //
+        btn_valueAnim_trans = findViewById(R.id.btn_valueAnim_trans);
+        btn_valueAnim_trans_1 = findViewById(R.id.btn_valueAnim_trans_1);
+        btn_valueAnim_trans_2 = findViewById(R.id.btn_valueAnim_trans_2);
+        btn_valueAnim_trans_3 = findViewById(R.id.btn_valueAnim_trans_3);
+        btn_valueAnim_trans_4 = findViewById(R.id.btn_valueAnim_trans_4);
+        btn_valueAnim_rotate = findViewById(R.id.btn_valueAnim_rotate);
+        btn_valueAnim_rotate_1 = findViewById(R.id.btn_valueAnim_rotate_1);
+        btn_valueAnim_rotate_2 = findViewById(R.id.btn_valueAnim_rotate_2);
+        btn_valueAnim_rotate_3 = findViewById(R.id.btn_valueAnim_rotate_3);
+        btn_valueAnim_rotate_4 = findViewById(R.id.btn_valueAnim_rotate_4);
+        btn_valueAnim_scale = findViewById(R.id.btn_valueAnim_scale);
+        btn_valueAnim_scale_1 = findViewById(R.id.btn_valueAnim_scale_1);
+        btn_valueAnim_scale_2 = findViewById(R.id.btn_valueAnim_scale_2);
+        btn_valueAnim_scale_3 = findViewById(R.id.btn_valueAnim_scale_3);
+        btn_valueAnim_scale_4 = findViewById(R.id.btn_valueAnim_scale_4);
+        btn_valueAnim_alpha = findViewById(R.id.btn_valueAnim_alpha);
+        btn_valueAnim_alpha_1 = findViewById(R.id.btn_valueAnim_alpha_1);
+        btn_valueAnim_alpha_2 = findViewById(R.id.btn_valueAnim_alpha_2);
+        btn_valueAnim_alpha_4 = findViewById(R.id.btn_valueAnim_alpha_4);
+        btn_valueAnim_all = findViewById(R.id.btn_valueAnim_all);
+        btn_valueAnim_all_1 = findViewById(R.id.btn_valueAnim_all_1);
+        btn_valueAnim_all_2 = findViewById(R.id.btn_valueAnim_all_2);
+        btn_valueAnim_all_3 = findViewById(R.id.btn_valueAnim_all_3);
+        btn_valueAnim_all_4 = findViewById(R.id.btn_valueAnim_all_4);
+
+        btn_valueAnim_trans.setOnClickListener(this);
+        btn_valueAnim_trans_1.setOnClickListener(this);
+        btn_valueAnim_trans_2.setOnClickListener(this);
+        btn_valueAnim_trans_3.setOnClickListener(this);
+        btn_valueAnim_trans_4.setOnClickListener(this);
+        btn_valueAnim_rotate.setOnClickListener(this);
+        btn_valueAnim_rotate_1.setOnClickListener(this);
+        btn_valueAnim_rotate_2.setOnClickListener(this);
+        btn_valueAnim_rotate_3.setOnClickListener(this);
+        btn_valueAnim_rotate_4.setOnClickListener(this);
+        btn_valueAnim_scale.setOnClickListener(this);
+        btn_valueAnim_scale_1.setOnClickListener(this);
+        btn_valueAnim_scale_2.setOnClickListener(this);
+        btn_valueAnim_scale_3.setOnClickListener(this);
+        btn_valueAnim_scale_4.setOnClickListener(this);
+        btn_valueAnim_alpha.setOnClickListener(this);
+        btn_valueAnim_alpha_1.setOnClickListener(this);
+        btn_valueAnim_alpha_2.setOnClickListener(this);
+        btn_valueAnim_alpha_4.setOnClickListener(this);
+        btn_valueAnim_all.setOnClickListener(this);
+        btn_valueAnim_all_1.setOnClickListener(this);
+        btn_valueAnim_all_2.setOnClickListener(this);
+        btn_valueAnim_all_3.setOnClickListener(this);
+        btn_valueAnim_all_4.setOnClickListener(this);
     }
 
     /**
@@ -125,14 +150,7 @@ public class PtSpDemo1Act extends AppCompatActivity {
      *
      * @param view
      */
-    @OnClick({
-            R2.id.btn_valueAnim_trans, R2.id.btn_valueAnim_rotate, R2.id.btn_valueAnim_scale, R2.id.btn_valueAnim_alpha, R2.id.btn_valueAnim_all,
-            R2.id.btn_valueAnim_trans_1, R2.id.btn_valueAnim_rotate_1, R2.id.btn_valueAnim_scale_1, R2.id.btn_valueAnim_alpha_1, R2.id.btn_valueAnim_all_1,
-            R2.id.btn_valueAnim_trans_2, R2.id.btn_valueAnim_rotate_2, R2.id.btn_valueAnim_scale_2, R2.id.btn_valueAnim_alpha_2, R2.id.btn_valueAnim_all_2,
-            R2.id.btn_valueAnim_trans_3, R2.id.btn_valueAnim_rotate_3, R2.id.btn_valueAnim_scale_3, R2.id.btn_valueAnim_all_3,
-            R2.id.btn_valueAnim_trans_4, R2.id.btn_valueAnim_rotate_4, R2.id.btn_valueAnim_scale_4, R2.id.btn_valueAnim_alpha_4, R2.id.btn_valueAnim_all_4,
-    })
-    public void OnClicks(View view) {
+    public void onClick(View view) {
         if (view == btn_valueAnim_trans) {
             ValueAnimator_xml_trans_1();
         } else if (view == btn_valueAnim_rotate) {

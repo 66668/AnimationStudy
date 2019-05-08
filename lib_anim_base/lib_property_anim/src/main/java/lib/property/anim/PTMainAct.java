@@ -12,18 +12,14 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lib.base.sjy.adpater.MainAdapter;
 
 public class PTMainAct extends AppCompatActivity {
 
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
-    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
 
-    @BindView(R2.id.tv_titile)
     TextView tv_title;
 
     //-------------------------------------------------------------
@@ -34,7 +30,8 @@ public class PTMainAct extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_main);
-        ButterKnife.bind(this);
+        recyclerView =findViewById(R.id.recyclerView);
+        tv_title =findViewById(R.id.tv_titile);
         tv_title.setText("Property Animation属性动画详解");
         initView();
     }

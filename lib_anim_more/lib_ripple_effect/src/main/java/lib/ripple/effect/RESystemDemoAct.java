@@ -8,49 +8,60 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 /**
  * 触摸反馈 系统样式展示
  */
-public class RESystemDemoAct extends AppCompatActivity {
+public class RESystemDemoAct extends AppCompatActivity implements View.OnClickListener {
 
-    @BindView(R2.id.tv_01)
     TextView tv_01;
 
-    @BindView(R2.id.tv_02)
     TextView tv_02;
 
-    @BindView(R2.id.tv_03)
     TextView tv_03;
 
-    @BindView(R2.id.tv_04)
     TextView tv_04;
 
-    @BindView(R2.id.btn_01)
     Button btn_01;
 
-    @BindView(R2.id.btn_02)
     Button btn_02;
 
-    @BindView(R2.id.btn_03)
     Button btn_03;
 
-    @BindView(R2.id.btn_04)
     Button btn_04;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_system);
-        ButterKnife.bind(this);
+        initMyView();
+
+
     }
 
-    @OnClick({R2.id.tv_01, R2.id.tv_02, R2.id.tv_03, R2.id.tv_04,
-            R2.id.btn_01, R2.id.btn_02, R2.id.btn_03, R2.id.btn_04,})
-    public void onClicks(View view) {
+    private void initMyView() {
+        tv_01 = findViewById(R.id.tv_01);
+        tv_02 = findViewById(R.id.tv_02);
+        tv_03 = findViewById(R.id.tv_03);
+        tv_04 = findViewById(R.id.tv_04);
+        //
+        btn_01 = findViewById(R.id.btn_01);
+        btn_02 = findViewById(R.id.btn_02);
+        btn_03 = findViewById(R.id.btn_03);
+        btn_04 = findViewById(R.id.btn_04);
+
+        tv_01.setOnClickListener(this);
+        tv_02.setOnClickListener(this);
+        tv_03.setOnClickListener(this);
+        tv_04.setOnClickListener(this);
+        btn_01.setOnClickListener(this);
+        btn_02.setOnClickListener(this);
+        btn_03.setOnClickListener(this);
+        btn_04.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
         if (view == tv_01) {
             setSystemBoard(tv_01);
 
@@ -103,5 +114,6 @@ public class RESystemDemoAct extends AppCompatActivity {
         int backgroundResource = typedArray.getResourceId(0, 0);
         view.setBackgroundResource(backgroundResource);
     }
+
 
 }

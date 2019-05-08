@@ -1,18 +1,16 @@
 package com.sjy.animationstudy;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.sjy.tweenanim.TAMainAct;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lib.anim.transition.TransMainAct;
 import lib.base.sjy.adpater.MainAdapter;
 import lib.circular.reveal.CRMainAct;
@@ -21,13 +19,10 @@ import lib.ripple.effect.REMainActivity;
 import lib.sjy.frame.FrameAnimActivity;
 import lib.view.state.changes.VSCMainAct;
 
-import com.sjy.tweenanim.TAMainAct;
-
 public class MainActivity extends BaseAct {
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
-    @BindView(R2.id.recyclerView)
-    RecyclerView recyclerView;
+   private RecyclerView recyclerView;
 
     //-------------------------------------------------------------
     private List<String> data = new ArrayList<>();
@@ -37,7 +32,7 @@ public class MainActivity extends BaseAct {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_main);
-        ButterKnife.bind(this);
+        recyclerView = findViewById(R.id.recyclerView);
         initView();
     }
 

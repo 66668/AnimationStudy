@@ -11,8 +11,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lib.anim.transition.demo1.Trans1Act;
 import lib.anim.transition.demo3.Demo3StyleAct;
 import lib.anim.transition.demo3.Demo3codeAct;
@@ -26,10 +24,8 @@ import lib.base.sjy.adpater.MainAdapter;
 public class TransMainAct extends AppCompatActivity {
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
-    @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
 
-    @BindView(R2.id.tv_titile)
     TextView tv_title;
 
     //-------------------------------------------------------------
@@ -40,7 +36,8 @@ public class TransMainAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_main);
-        ButterKnife.bind(this);
+        recyclerView = findViewById(R.id.recyclerView);
+        tv_title = findViewById(R.id.tv_titile);
         tv_title.setText("转场动画 演示demo");
         initView();
     }

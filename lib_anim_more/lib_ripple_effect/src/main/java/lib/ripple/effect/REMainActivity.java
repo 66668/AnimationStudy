@@ -7,19 +7,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lib.base.sjy.adpater.MainAdapter;
 
 public class REMainActivity extends AppCompatActivity {
     //-----------------------------控件--------------------------------
-    //RecyclerView-v7
-    @BindView(R2.id.recyclerView)
-    RecyclerView recyclerView;
+    private  RecyclerView recyclerView;
 
     //-------------------------------------------------------------
     private List<String> data = new ArrayList<>();
@@ -29,7 +24,7 @@ public class REMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_main);
-        ButterKnife.bind(this);
+        recyclerView = findViewById(R.id.recyclerView);
         initView();
     }
 

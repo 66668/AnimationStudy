@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 28
@@ -27,8 +26,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.jakewharton:butterknife:9.0.0-rc2'
-    //lib下使用3步骤：1.project/build.gradle 2.该处 3 该处的顶部添加plugin
-    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc2'
     api project(':lib_base')
 }

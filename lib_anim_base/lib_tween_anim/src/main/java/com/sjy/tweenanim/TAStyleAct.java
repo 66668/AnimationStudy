@@ -8,17 +8,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 /**
  * 动画的style调用样式
  */
 public class TAStyleAct extends AppCompatActivity {
 
     //-----------------------------控件--------------------------------
-    @BindView(R2.id.btn_popwidow)
     Button btn_popwidow;
 
 
@@ -30,14 +25,13 @@ public class TAStyleAct extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_style);
-        ButterKnife.bind(this);
-    }
-
-    @OnClick({R2.id.btn_popwidow})
-    public void onClicks(View view) {
-        if (view == btn_popwidow) {
-            myPopwidow1(view);
-        }
+        btn_popwidow = findViewById(R.id.btn_popwidow);
+        btn_popwidow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myPopwidow1(v);
+            }
+        });
     }
 
     private void myPopwidow1(View anchor) {
