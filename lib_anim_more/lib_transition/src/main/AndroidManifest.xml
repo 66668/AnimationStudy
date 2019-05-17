@@ -38,6 +38,13 @@
             android:theme="@style/alpha_style" />
 
         <!--2 android.transition-->
+
+        <!--Explode样式-->
+        <activity android:name=".demo3.ExplodeDemoAct" />
+
+        <!--Slide样式-->
+        <activity android:name=".demo3.SlideDemoAct" />
+
         <!--style样式-->
         <activity
             android:name=".demo3.Demo3StyleAct"
@@ -66,11 +73,8 @@
             android:name=".demo4.SEDemo4Act2"
             android:theme="@style/sharedElement_Style_01" />
 
-        <!--(2)共享元素:Explode样式-->
-        <activity android:name=".demo3.ExplodeDemoAct" />
 
-        <!--(3)共享元素:Slide样式-->
-        <activity android:name=".demo3.SlideDemoAct" />
+        <activity android:name=".demo5.SEFragMainAct" />
 
     </application>
 </manifest>

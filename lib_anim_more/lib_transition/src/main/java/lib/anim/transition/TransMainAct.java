@@ -13,11 +13,9 @@ import java.util.List;
 
 import lib.anim.transition.demo1.Trans1Act;
 import lib.anim.transition.demo2.Demo2MainAct;
-import lib.anim.transition.demo3.Demo3StyleAct;
-import lib.anim.transition.demo3.Demo3codeAct;
-import lib.anim.transition.demo3.Demo3xmlAct;
 import lib.anim.transition.demo3.Demo3MainAct;
 import lib.anim.transition.demo4.SEDemo4Act1;
+import lib.anim.transition.demo5.SEFragMainAct;
 import lib.base.sjy.adpater.MainAdapter;
 
 /**
@@ -27,7 +25,6 @@ public class TransMainAct extends AppCompatActivity {
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
     RecyclerView recyclerView;
-
     TextView tv_title;
 
     //-------------------------------------------------------------
@@ -81,6 +78,8 @@ public class TransMainAct extends AppCompatActivity {
                         actSharedElement();
                         break;
                     case 4:
+                        frgSharedElement();
+                        break;
                     case 5:
                     case 6:
                     case 7:
@@ -123,7 +122,7 @@ public class TransMainAct extends AppCompatActivity {
      * Act-Frag间共享元素
      */
     private void frgSharedElement() {
-        Intent intent = new Intent(TransMainAct.this, SEDemo4Act1.class);
+        Intent intent = new Intent(TransMainAct.this, SEFragMainAct.class);
         startActivity(intent);
     }
 }

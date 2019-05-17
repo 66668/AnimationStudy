@@ -413,19 +413,28 @@ act2：
   如上步骤1，2相同，第三步修改为：
  ### 3 代码设置
  
-    FragmentB fragmentB = FragmentB.newInstance(sample);
+            SEFragment02 sharedElementFragment2 = SEFragment02.newInstance(sample);//个人定义即可
     
-    // Defines enter transition for all fragment views
-    Slide slideTransition = new Slide(Gravity.RIGHT);
-    slideTransition.setDuration(1000);
-    sharedElementFragment2.setEnterTransition(slideTransition);
+            Slide slideTransition = new Slide(Gravity.RIGHT);
+            slideTransition.setDuration(400);
     
-    // Defines enter transition only for shared element
-    ChangeBounds changeBoundsTransition = TransitionInflater.from(this).inflateTransition(R.transition.change_bounds);
-    fragmentB.setSharedElementEnterTransition(changeBoundsTransition);
+            ChangeBounds changeBoundsTransition = new ChangeBounds();
+            changeBoundsTransition.setDuration(500);
     
-    getFragmentManager().beginTransaction()
-            .replace(R.id.content, fragmentB)
-            .addSharedElement(blueView, getString(R.string.blue_name))
-            .commit();
+            sharedElementFragment2.setEnterTransition(slideTransition);
+            sharedElementFragment2.setAllowEnterTransitionOverlap(overlap);
+            sharedElementFragment2.setAllowReturnTransitionOverlap(overlap);
+            sharedElementFragment2.setSharedElementEnterTransition(changeBoundsTransition);
+    
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.frameLayout, sharedElementFragment2)
+                    .addToBackStack(null)
+                    .addSharedElement(img, "img_01")
+                    .commit();
   
+  
+  
+  
+  **参考**：
+  
+  1. https://github.com/lgvalle/Material-Animations
