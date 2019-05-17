@@ -14,7 +14,7 @@
         <activity android:name=".demo1.Trans2Act" />
         <!--2 windowAnimationStyle-->
         <activity
-            android:name=".Demo2MainAct"
+            android:name=".demo2.Demo2MainAct"
             android:launchMode="singleInstance" />
 
         <activity
@@ -53,6 +53,11 @@
         <activity android:name=".demo3.Demo3codeAct2" />
 
         <!--共享元素 android.transition-->
+
+        <!--主界面-->
+        <activity android:name=".demo3.Demo3MainAct" />
+
+        <!--(1)单个元素的共享-->
         <activity
             android:name=".demo4.SEDemo4Act1"
             android:theme="@style/sharedElement_Style_01" />
@@ -61,6 +66,11 @@
             android:name=".demo4.SEDemo4Act2"
             android:theme="@style/sharedElement_Style_01" />
 
+        <!--(2)共享元素:Explode样式-->
+        <activity android:name=".demo3.ExplodeDemoAct" />
+
+        <!--(3)共享元素:Slide样式-->
+        <activity android:name=".demo3.SlideDemoAct" />
 
     </application>
 </manifest>

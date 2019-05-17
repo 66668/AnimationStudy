@@ -31,8 +31,8 @@ public class SEDemo4Act2 extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {
         Intent intent = new Intent(SEDemo4Act2.this, SEDemo4Act1.class);
 
-        View sharedView = img;
-        String transitionName = "sjy_01";
+        View sharedView = img;//设置共享控件
+        String transitionName = "sjy_01";//设置标签
 
         ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(SEDemo4Act2.this, sharedView, transitionName);
         startActivity(intent, transitionActivityOptions.toBundle());

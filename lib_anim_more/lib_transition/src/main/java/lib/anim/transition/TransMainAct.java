@@ -12,9 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lib.anim.transition.demo1.Trans1Act;
+import lib.anim.transition.demo2.Demo2MainAct;
 import lib.anim.transition.demo3.Demo3StyleAct;
 import lib.anim.transition.demo3.Demo3codeAct;
 import lib.anim.transition.demo3.Demo3xmlAct;
+import lib.anim.transition.demo3.Demo3MainAct;
 import lib.anim.transition.demo4.SEDemo4Act1;
 import lib.base.sjy.adpater.MainAdapter;
 
@@ -47,9 +49,7 @@ public class TransMainAct extends AppCompatActivity {
         //
         data.add("Act切换动画-方式1：overridePendingTransition");
         data.add("Act切换动画-方式2：sytle-windowAnimationStyle");
-        data.add("Act切换动画-方式3-1--sytle方式--windowContentTransitions");
-        data.add("Act切换动画-方式3-2--xml方式");
-        data.add("Act切换动画-方式3-3--code方式");
+        data.add("Act切换动画-方式3:android.transition包支持");
         data.add("Act间共享元素（sharedElement）");
         data.add("Fragment间共享元素（sharedElement）");
         //
@@ -75,17 +75,13 @@ public class TransMainAct extends AppCompatActivity {
                         startToStyle2();
                         break;
                     case 2:
-                        startToTrans_style();
+                        startToTrans_demo3();
                         break;
                     case 3:
-                        startToTrans_xml();
-                        break;
-                    case 4:
-                        startToTrans_code();
-                        break;
-                    case 5:
                         actSharedElement();
                         break;
+                    case 4:
+                    case 5:
                     case 6:
                     case 7:
                     case 8:
@@ -101,31 +97,31 @@ public class TransMainAct extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     *
+     */
     private void startToStyle2() {
         Intent intent = new Intent(TransMainAct.this, Demo2MainAct.class);
         startActivity(intent);
     }
 
-    private void startToTrans_style() {
-        Intent intent = new Intent(TransMainAct.this, Demo3StyleAct.class);
+    private void startToTrans_demo3() {
+        Intent intent = new Intent(TransMainAct.this, Demo3MainAct.class);
         startActivity(intent);
     }
 
-    private void startToTrans_xml() {
-        Intent intent = new Intent(TransMainAct.this, Demo3xmlAct.class);
-        startActivity(intent);
-    }
 
-    private void startToTrans_code() {
-        Intent intent = new Intent(TransMainAct.this, Demo3codeAct.class);
-        startActivity(intent);
-    }
-
+    /**
+     * Act间共享元素
+     */
     private void actSharedElement() {
         Intent intent = new Intent(TransMainAct.this, SEDemo4Act1.class);
         startActivity(intent);
     }
 
+    /**
+     * Act-Frag间共享元素
+     */
     private void frgSharedElement() {
         Intent intent = new Intent(TransMainAct.this, SEDemo4Act1.class);
         startActivity(intent);

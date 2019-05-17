@@ -35,6 +35,7 @@ Activity 或者 Fragment 的动画切换，但是他们仅仅局限与将整个�
 
 **简介**：Activity 跳转动画是分为两个部分的：一个 Activity 的销毁动画与一个 Activity 的显示动画,其中一种实现方式是overridePendingTransition，实现方式如下：
 
+示例代码位置：lib_anim_more/lib_transition/lib.anim.transition.demo1/
 ### 1.Activity 跳转动画： overridePendingTransition 的代码样式 
 这个方法很简单，只需要在跳转代码后边加上overridePendingTransition()方法即可。如下：
 (1)调用：
@@ -68,8 +69,10 @@ slide_out_left.xml:
             android:toXDelta="0.0" />
     </set>
     
-### 2.Activity 跳转动画： overridePendingTransition 的style样式 
+## 2.Activity 跳转动画： overridePendingTransition 的style样式 
 style的item标签中使用属性 **android:windowAnimationStyle**,使用windowEnterAnimation和windowExitAnimation,其他尽量不要用
+
+示例代码位置：lib_anim_more/lib_transition/lib.anim.transition.demo2/
 #### style的错误方式：
 示例如下：
 （1）自定义样式：
@@ -165,15 +168,17 @@ leftDemo_anim添加**parent="@android:style/Animation.Translucent"**（使用par
     
  ## 实现 Activity 的切换动画-方法2--Transitions Framework
  
- **简介**,该类动画主要在android.transition包下，关于该包的API详解，请参考本人总结：
+ **简介**,该类动画主要在**android.transition**包下，关于该包的API详解，请参考本人总结：
 1. [API android.transition 详解跳转（位置：lib_anim_more/lib_transition/README_trans_API.md）](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_transition/README_trans_API.md);
+
 实现方式有三种：
- 
  1. style方式
  2. xml方式
  3. code方式
  
-### 在 style 中设置
+示例代码位置：lib_anim_more/lib_transition/lib.anim.transition.demo3/
+ 
+### (1)在 style 中设置
 
 在 style 中添加 `android:windowContentTransitions` 属性启用窗口内容转换( Material-theme 应用默认为 true )，
 指定该 Activity 的 Transition
@@ -189,7 +194,7 @@ leftDemo_anim添加**parent="@android:style/Animation.Translucent"**（使用par
         <item name="android:windowExitTransition">@transition/activity_slide</item>
     </style>
 
-### xml 中创建
+### (2)xml 中创建
 
 过渡效果定义在 xml 中，目录是 res/transition
 
@@ -205,7 +210,7 @@ leftDemo_anim添加**parent="@android:style/Animation.Translucent"**（使用par
     <slide xmlns:android="http://schemas.android.com/apk/res/"
         android:duration="1000"/>
 
-要使用这些 xml 中定义的过渡动画，你需要使用 TransitionInflater 来实例化它们。
+**要使用这些 xml 中定义的过渡动画，你需要使用 TransitionInflater 来实例化它们**。
 
 `MainActivity.java`
 
@@ -235,7 +240,7 @@ leftDemo_anim添加**parent="@android:style/Animation.Translucent"**（使用par
         getWindow().setEnterTransition(fade);
     }
 
-### 在代码中创建
+### (3)在代码中创建
 
 `MainActivity.java`
 
@@ -268,24 +273,32 @@ leftDemo_anim添加**parent="@android:style/Animation.Translucent"**（使用par
     }
 不管哪种创建方法都会产生一样的效果:
 
-**那么这里面一步一步的到底发生了什么:**  
 
-1. Activity A 启动 Activity B
-2. Transition Framework 发现 A 中定义了Exit Transition (slide) 然后就会对它的所有可见的View使用这个过渡动画.
-3. Transition Framework 发现 B 中定义了Enter Transition (fade) 然后机会对它所有可见的Views使用这个过渡动画.
-4. On Back Pressed(按返回键) Transition Framework 会执行把 Enter and Exit 过渡动画反过来执行(但是如果定义了 
-returnTransition 和 reenterTransition，那么就会执行这些定义的动画)
-
-> 译注:
-> * Exit Transition: 可以理解为 activity 进入后台的过渡动画
-> * Enter Transition: 可以理解为创建 activity 并显示时的过渡动画
-> * Return Transition:可以理解为销毁 activity 时的过渡动画
-> * Reenter Transition: 可以理解为 activity 从后台进入前台时的过渡动画
-> * 要使这些过渡动画生效，我们需要调用 `startActivity(intent，bundle)` 方法来启动 Activity。bundle 需要通过 
-`ActivityOptionsCompat.makeSceneTransitionAnimation().toBundle()` 的方式来生成
  
   
  ## 实现 Activity 的共享动画 SharedElement
+ 
+ 示例代码位置：lib_anim_more/lib_transition/lib.anim.transition.demo4/
+ 
+ **那么这里面一步一步的到底发生了什么:**  
+ 
+ 1. Activity A 启动 Activity B
+ 2. Transition Framework 发现 A 中定义了Exit Transition (slide) 然后就会对它的所有可见的View使用这个过渡动画.
+ 3. Transition Framework 发现 B 中定义了Enter Transition (fade) 然后机会对它所有可见的Views使用这个过渡动画.
+ 4. On Back Pressed(按返回键) Transition Framework 会执行把 Enter and Exit 过渡动画反过来执行(但是如果定义了 
+ returnTransition 和 reenterTransition，那么就会执行这些定义的动画)
+ 
+ > 译注:
+ > * Exit Transition: 可以理解为 activity 进入后台的过渡动画
+ > * Enter Transition: 可以理解为创建 activity 并显示时的过渡动画
+ > * Return Transition:可以理解为销毁 activity 时的过渡动画
+ > * Reenter Transition: 可以理解为 activity 从后台进入前台时的过渡动画
+ > * 要使这些过渡动画生效，我们需要调用 `startActivity(intent，bundle)` 方法来启动 Activity。bundle 需要通过 
+ `ActivityOptionsCompat.makeSceneTransitionAnimation().toBundle()` 的方式来生成
+ 
+ 
+ 说明：**ActivityOptionsCompat是ActivityOptions的兼容包,如果应用要支持android5.0以下，需要使用v4包的ActivityOptionsCompat实现，5.0以上，使用哪个没区别**。
+ 
  ### 1 在style中添加act样式,在对应act上添加该theme
  
     <style name="sharedElement_Style_01" parent="@style/Theme.AppCompat.Light.NoActionBar">
@@ -394,7 +407,9 @@ act2：
  
  
 ## 实现 Fragmentg间 共享动画 
-  
+
+   示例代码位置：lib_anim_more/lib_transition/lib.anim.transition.demo5/
+   
   如上步骤1，2相同，第三步修改为：
  ### 3 代码设置
  

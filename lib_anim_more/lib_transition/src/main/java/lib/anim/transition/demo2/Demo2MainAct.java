@@ -1,4 +1,4 @@
-package lib.anim.transition;
+package lib.anim.transition.demo2;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import lib.anim.transition.demo2.DemoAlphaAct;
-import lib.anim.transition.demo2.DemoBottomAct;
-import lib.anim.transition.demo2.DemoLeftAct;
-import lib.anim.transition.demo2.DemoRightAct;
-import lib.anim.transition.demo2.DemoTopAct;
+import lib.anim.transition.R;
 import lib.base.sjy.adpater.MainAdapter;
 
 /**
