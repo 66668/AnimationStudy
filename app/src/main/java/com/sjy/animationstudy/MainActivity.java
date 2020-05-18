@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.ViewPropertyAnimator;
 import android.widget.Toast;
 
 import com.sjy.tweenanim.TAMainAct;
@@ -23,7 +24,7 @@ public class MainActivity extends BaseAct {
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
    private RecyclerView recyclerView;
-
+    private ViewPropertyAnimator animator;
     //-------------------------------------------------------------
     private List<String> data = new ArrayList<>();
     private MainAdapter adapter;

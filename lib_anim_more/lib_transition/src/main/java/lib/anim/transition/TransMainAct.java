@@ -47,8 +47,8 @@ public class TransMainAct extends AppCompatActivity {
         data.add("Act切换动画-方式1：overridePendingTransition");
         data.add("Act切换动画-方式2：sytle-windowAnimationStyle");
         data.add("Act切换动画-方式3:android.transition包支持");
-        data.add("Act间共享元素（sharedElement）");
-        data.add("Fragment间共享元素（sharedElement）");
+        data.add("共享元素（sharedElement）--Act示例");
+        data.add("共享元素（sharedElement）--Fragment示例");
         //
         adapter = new MainAdapter(this);
         adapter.setDatas(data);

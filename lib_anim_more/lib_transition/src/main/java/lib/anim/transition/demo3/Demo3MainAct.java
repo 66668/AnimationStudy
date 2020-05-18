@@ -48,6 +48,7 @@ public class Demo3MainAct extends AppCompatActivity {
         data.add("sytle方式--windowContentTransitions");
         data.add("xml方式(2)");
         data.add("code方式(2)");
+        data.add("Scenes场景动画");
         //
         adapter = new MainAdapter(this);
         adapter.setDatas(data);
@@ -98,6 +99,7 @@ public class Demo3MainAct extends AppCompatActivity {
                         startToTrans_code();
                         break;
                     case 7:
+                        startToTrans_scenes();
                         break;
                 }
             }
@@ -124,6 +126,14 @@ public class Demo3MainAct extends AppCompatActivity {
      * code方式
      */
     private void startToTrans_code() {
+        Intent intent = new Intent(Demo3MainAct.this, Demo3codeAct.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 场景动画
+     */
+    private void startToTrans_scenes() {
         Intent intent = new Intent(Demo3MainAct.this, Demo3codeAct.class);
         startActivity(intent);
     }

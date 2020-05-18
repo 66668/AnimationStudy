@@ -166,7 +166,7 @@ leftDemo_anim添加**parent="@android:style/Animation.Translucent"**（使用par
             <item name="android:windowExitAnimation">@anim/base_slide_right_out</item>
      </style>
     
- ## 实现 Activity 的切换动画-方法2--Transitions Framework
+ ## 实现 Activity 的切换动画-Transitions Framework
  
  **简介**,该类动画主要在**android.transition**包下，关于该包的API详解，请参考本人总结：
 1. [API android.transition 详解跳转（位置：lib_anim_more/lib_transition/README_trans_API.md）](https://github.com/66668/AnimationStudy/blob/master/lib_anim_more/lib_transition/README_trans_API.md);
@@ -271,7 +271,9 @@ leftDemo_anim添加**parent="@android:style/Animation.Translucent"**（使用par
         fade.setDuration(1000);
         getWindow().setEnterTransition(fade);
     }
-不管哪种创建方法都会产生一样的效果:
+## 布局元素动画（Scenes-场景）
+
+示例代码位置：lib_anim_more/lib_transition/lib.anim.transition.demo3/
 
 
  
@@ -433,7 +435,7 @@ act2：
                     .commit();
   
   
-  
+
   
   **参考**：
   
