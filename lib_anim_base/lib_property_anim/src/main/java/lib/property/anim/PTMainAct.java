@@ -14,6 +14,9 @@ import java.util.List;
 
 import lib.base.sjy.adpater.MainAdapter;
 
+/**
+ * 属性动画 主界面
+ */
 public class PTMainAct extends AppCompatActivity {
 
     //-----------------------------控件--------------------------------
@@ -30,8 +33,8 @@ public class PTMainAct extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_main);
-        recyclerView =findViewById(R.id.recyclerView);
-        tv_title =findViewById(R.id.tv_titile);
+        recyclerView = findViewById(R.id.recyclerView);
+        tv_title = findViewById(R.id.tv_titile);
         tv_title.setText("Property Animation属性动画详解");
         initView();
     }
@@ -43,6 +46,7 @@ public class PTMainAct extends AppCompatActivity {
         data.add("特有效果 简单示例");
         data.add("插值器（包括自定义）示例");
         data.add("估值器TypeEvaluator 简单示例");
+        data.add("应用中 好的动画切换 实例1");
 
         //
         adapter = new MainAdapter(this);
@@ -62,16 +66,19 @@ public class PTMainAct extends AppCompatActivity {
                         startToDemo1();
                         break;
                     case 1:
-                        startToDemo2();
+                        Toast.makeText(PTMainAct.this, "未做", Toast.LENGTH_SHORT).show();
+//                        startToDemo2();
                         break;
                     case 2:
-                        startToDemo3();
+                        Toast.makeText(PTMainAct.this, "未做", Toast.LENGTH_SHORT).show();
+//                        startToDemo3();
                         break;
                     case 3:
 //                        startToDemo4();
                         Toast.makeText(PTMainAct.this, "未做", Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
+                        startToDemo5();
                         break;
                     case 5:
                         break;
@@ -104,7 +111,12 @@ public class PTMainAct extends AppCompatActivity {
     }
 
     private void startToDemo4() {
-        Intent intent = new Intent(this, Demo3Act.class);
+        Intent intent = new Intent(this, Demo5Act.class);
+        startActivity(intent);
+    }
+
+    private void startToDemo5() {
+        Intent intent = new Intent(this, Demo5Act.class);
         startActivity(intent);
     }
 

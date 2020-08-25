@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 /**
- * 属性动画 特有动画效果
+ * 属性动画 特有动画效果（未做）
  */
 public class PtSpDemo1Act extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = "SJY";
