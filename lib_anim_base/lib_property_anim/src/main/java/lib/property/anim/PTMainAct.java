@@ -63,7 +63,7 @@ public class PTMainAct extends AppCompatActivity {
             public void onItemClick(String str, int pos) {
                 switch (pos) {
                     case 0:
-                        startToDemo1();
+                        startToDemo();
                         break;
                     case 1:
                         Toast.makeText(PTMainAct.this, "未做", Toast.LENGTH_SHORT).show();
@@ -95,6 +95,10 @@ public class PTMainAct extends AppCompatActivity {
     }
 
     //
+    private void startToDemo() {
+        Intent intent = new Intent(this, PtBaseDemoAct.class);
+        startActivity(intent);
+    }
     private void startToDemo1() {
         Intent intent = new Intent(this, PtBaseDemoAct.class);
         startActivity(intent);

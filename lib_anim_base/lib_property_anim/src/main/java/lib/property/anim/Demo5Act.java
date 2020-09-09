@@ -46,7 +46,6 @@ public class Demo5Act extends AppCompatActivity {
 
             }
 
-
             @Override
             public void onAnimationEnd(Animator animation) {
                 // 放大的View复位
@@ -74,6 +73,7 @@ public class Demo5Act extends AppCompatActivity {
         ObjectAnimator animatorScale4 = ObjectAnimator.ofFloat(login_bg_image2, "scaleY", 1.0f, 1.3f);
         AnimatorSet animatorSet2 = new AnimatorSet();
         animatorSet2.setDuration(5000);
+        //执行流程
         animatorSet2.play(animator3).with(animator4).with(animatorScale3).with(animatorScale4);
         animatorSet2.addListener(new Animator.AnimatorListener() {
             @Override
@@ -107,11 +107,11 @@ public class Demo5Act extends AppCompatActivity {
 
 
         animatorSet = new AnimatorSet();
+        //加入两个animatorSet
         animatorSet.playSequentially(animatorSet1, animatorSet2);
         animatorSet.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-
 
             }
 
@@ -126,16 +126,15 @@ public class Demo5Act extends AppCompatActivity {
             @Override
             public void onAnimationCancel(Animator animation) {
 
-
             }
 
 
             @Override
             public void onAnimationRepeat(Animator animation) {
 
-
             }
         });
+        //开始执行
         animatorSet.start();
     }
 

@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -78,6 +79,8 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
 
     Button btn_valueAnim_all_4;
 
+    Button btn_valueAnim_trans_5;
+
 
     //-------------------------------------------------------------
     private int type = 0;
@@ -85,7 +88,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_base);
+        setContentView(R.layout.act_base_demo);
         initMyView();
         Log.d(TAG, "Demo1Act img.getLayoutParams().width=" + img.getLayoutParams().width);
     }
@@ -117,6 +120,8 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
         btn_valueAnim_all_2 = findViewById(R.id.btn_valueAnim_all_2);
         btn_valueAnim_all_3 = findViewById(R.id.btn_valueAnim_all_3);
         btn_valueAnim_all_4 = findViewById(R.id.btn_valueAnim_all_4);
+        //
+        btn_valueAnim_trans_5 = findViewById(R.id.btn_valueAnim_trans_5);
 
         btn_valueAnim_trans.setOnClickListener(this);
         btn_valueAnim_trans_1.setOnClickListener(this);
@@ -142,8 +147,9 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
         btn_valueAnim_all_2.setOnClickListener(this);
         btn_valueAnim_all_3.setOnClickListener(this);
         btn_valueAnim_all_4.setOnClickListener(this);
+        //
+        btn_valueAnim_trans_5.setOnClickListener(this);
     }
-
 
     /**
      * 点击监听
@@ -151,74 +157,81 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
      * @param view
      */
     public void onClick(View view) {
-        if (view == btn_valueAnim_trans) {
-            ValueAnimator_xml_trans_1();
+        //ValueAnimator xml方式示例
+        if (view == btn_valueAnim_trans_1) {
+            ObjectAnimator_xml_trans();
+        } else if (view == btn_valueAnim_rotate_1) {
+            ObjectAnimator_xml_rotate();
+        } else if (view == btn_valueAnim_scale_1) {
+            ObjectAnimator_xml_scale();
+        } else if (view == btn_valueAnim_alpha_1) {
+            ObjectAnimator_xml_alpha();
+        } else if (view == btn_valueAnim_all_1) {
+            ObjectAnimator_xml_all();
+        }
+        //
+        else if (view == btn_valueAnim_trans) {
+            ObjectAnimator_xml_trans_1();
         } else if (view == btn_valueAnim_rotate) {
-            ValueAnimator_xml_rotate_1();
+            ObjectAnimator_xml_rotate_1();
         } else if (view == btn_valueAnim_scale) {
-            ValueAnimator_xml_scale_1();
+            ObjectAnimator_xml_scale_1();
         } else if (view == btn_valueAnim_alpha) {
-            ValueAnimator_xml_alpha_1();
+            ObjectAnimator_xml_alpha_1();
         } else if (view == btn_valueAnim_all) {
             ValueAnimator_xml_all_1();
         }
-        //
-        else if (view == btn_valueAnim_trans_1) {
-            ValueAnimator_xml_trans();
-        } else if (view == btn_valueAnim_rotate_1) {
-            ValueAnimator_xml_rotate();
-        } else if (view == btn_valueAnim_scale_1) {
-            ValueAnimator_xml_scale();
-        } else if (view == btn_valueAnim_alpha_1) {
-            ValueAnimator_xml_alpha();
-        } else if (view == btn_valueAnim_all_1) {
-            ValueAnimator_xml_all();
-        }
-        //
+
+        //ObjectAnimator.ofFloat code方式
         else if (view == btn_valueAnim_trans_2) {
-            ValueAnimator_code_trans_2();
+            ObjectAnimator_code_trans_2();
         } else if (view == btn_valueAnim_rotate_2) {
-            ValueAnimator_code_rotate_2();
+            ObjectAnimator_code_rotate_2();
         } else if (view == btn_valueAnim_scale_2) {
-            ValueAnimator_code_scale_2();
+            ObjectAnimator_code_scale_2();
         } else if (view == btn_valueAnim_alpha_2) {
-            ValueAnimator_code_alpha_2();
+            ObjectAnimator_code_alpha_2();
         } else if (view == btn_valueAnim_all_2) {
-            ValueAnimator_code_all_2();
+            ObjectAnimator_code_all_2();
         }
-        //
+        // ObjectAnimator.ofFloat code方式
         if (view == btn_valueAnim_trans_3) {
-            ValueAnimator_code_trans_3();
+            ObjectAnimator_code_trans_3();
         } else if (view == btn_valueAnim_rotate_3) {
-            ValueAnimator_code_rotate_3();
+            ObjectAnimator_code_rotate_3();
         } else if (view == btn_valueAnim_scale_3) {
-            ValueAnimator_code_scale_3();
+            ObjectAnimator_code_scale_3();
         } else if (view == btn_valueAnim_all_3) {
-            ValueAnimator_code_all_3();
+            ObjectAnimator_code_all_3();
         }
-        //
+        //PropertyValuesHolder+ObjectAnimator+ofFloat code方式
         else if (view == btn_valueAnim_trans_4) {
-            ValueAnimator_code_trans_4();
+            PropertyValuesHolder_code_trans_4();
         } else if (view == btn_valueAnim_rotate_4) {
-            ValueAnimator_code_rotate_4();
+            PropertyValuesHolder_code_rotate_4();
         } else if (view == btn_valueAnim_scale_4) {
-            ValueAnimator_code_scale_4();
+            PropertyValuesHolder_code_scale_4();
         } else if (view == btn_valueAnim_alpha_4) {
-            ValueAnimator_code_alpha_4();
+            PropertyValuesHolder_code_alpha_4();
         } else if (view == btn_valueAnim_all_4) {
-            ValueAnimator_code_all_4();
+            PropertyValuesHolder_code_all_4();
+        }
+        //AnimatorSet+ObjectAnimator+ofFloat code方式
+        else if (view == btn_valueAnim_trans_5) {
+            Intent intent = new Intent(this, Demo5Act.class);
+            startActivity(intent);
         }
 
     }
 
     //===============================================================
-    //==================ValueAnimator xml方式示例========================
+    //==================ObjectAnimator xml方式演示=====================
     //===============================================================
 
     /**
      * 左右平移+监听
      */
-    private void ValueAnimator_xml_trans() {
+    private void ObjectAnimator_xml_trans() {
         ObjectAnimator animator = (ObjectAnimator) AnimatorInflater.loadAnimator(this, R.animator.pt_objanimator_trans_r);
         animator.setTarget(img);//不设置该方法，动画不执行
         animator.start();
@@ -239,7 +252,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 顺时针旋转
      */
-    private void ValueAnimator_xml_rotate() {
+    private void ObjectAnimator_xml_rotate() {
         ObjectAnimator animator = (ObjectAnimator) AnimatorInflater.loadAnimator(this, R.animator.pt_objanimator_rotation_r);
         animator.setTarget(img);//不设置该方法，动画不执行
         animator.start();
@@ -257,7 +270,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 放大
      */
-    private void ValueAnimator_xml_scale() {
+    private void ObjectAnimator_xml_scale() {
         if (type == 0) {
             type++;
             ObjectAnimator animator = (ObjectAnimator) AnimatorInflater.loadAnimator(this, R.animator.pt_objanimator_scale_big_x);
@@ -287,7 +300,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void ValueAnimator_xml_alpha() {
+    private void ObjectAnimator_xml_alpha() {
         ObjectAnimator animator = (ObjectAnimator) AnimatorInflater.loadAnimator(this, R.animator.pt_objanimator_alpha_10);
         animator.setTarget(img);//不设置该方法，动画不执行
         animator.start();
@@ -297,18 +310,18 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      *
      */
-    private void ValueAnimator_xml_all() {
+    private void ObjectAnimator_xml_all() {
         AnimatorSet objectAnimator = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.pt_set_demo1);//将xml中的动画加载
         objectAnimator.setTarget(img);
         objectAnimator.start();
     }
 
-    //==========================================================
+    //===========================ObjectAnimator xml方式演示===============================
 
     /**
      * 上下移动+监听
      */
-    private void ValueAnimator_xml_trans_1() {
+    private void ObjectAnimator_xml_trans_1() {
         ObjectAnimator animator = (ObjectAnimator) AnimatorInflater.loadAnimator(this, R.animator.pt_objanimator_trans_up);
         animator.setTarget(img);//不设置该方法，动画不执行
         animator.start();
@@ -325,13 +338,19 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
         });
     }
 
-    private void ValueAnimator_xml_rotate_1() {
+    /**
+     * 旋转
+     */
+    private void ObjectAnimator_xml_rotate_1() {
         ObjectAnimator animator = (ObjectAnimator) AnimatorInflater.loadAnimator(PtBaseDemoAct.this, R.animator.pt_objanimator_rotation_l);
         animator.setTarget(img);//不设置该方法，动画不执行
         animator.start();
     }
 
-    private void ValueAnimator_xml_scale_1() {
+    /**
+     * 缩放
+     */
+    private void ObjectAnimator_xml_scale_1() {
         if (type == 0) {
             type++;
             ObjectAnimator animator = (ObjectAnimator) AnimatorInflater.loadAnimator(this, R.animator.pt_objanimator_scale_small_x);
@@ -359,14 +378,20 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void ValueAnimator_xml_alpha_1() {
+    /**
+     * 透明
+     */
+    private void ObjectAnimator_xml_alpha_1() {
         ObjectAnimator animator = (ObjectAnimator) AnimatorInflater.loadAnimator(this, R.animator.pt_objanimator_alpha_01);
         animator.setTarget(img);//不设置该方法，动画不执行
         animator.start();
     }
 
+    /**
+     *
+     */
     private void ValueAnimator_xml_all_1() {
-
+        Toast.makeText(this, "未做", Toast.LENGTH_SHORT).show();
     }
 
     //========================================================================================
@@ -382,7 +407,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
      * 创建属性动画对象，并设置移动的方向和偏移量
      * translationX是imageview的平移属性
      */
-    private void ValueAnimator_code_trans_2() {
+    private void ObjectAnimator_code_trans_2() {
         //获取对象方式不是new,而是ofFloat
         ObjectAnimator animator = ObjectAnimator.ofFloat(img, "translationX", 0, 250f);
 //      设置移动时间
@@ -409,7 +434,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 顺时针旋转 +监听 ObjectAnimator.ofFloat
      */
-    private void ValueAnimator_code_rotate_2() {
+    private void ObjectAnimator_code_rotate_2() {
         ObjectAnimator animator = ObjectAnimator.ofFloat(img, "rotation", 0f, 360f);
         animator.setDuration(1000);
         animator.start();
@@ -428,7 +453,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 放大 ObjectAnimator.ofFloat
      */
-    private void ValueAnimator_code_scale_2() {
+    private void ObjectAnimator_code_scale_2() {
         if (type == 0) {
             type++;
             ObjectAnimator animatorX = ObjectAnimator.ofFloat(img, "scaleX", 0f, 1f, 0.5f, 1f);
@@ -495,7 +520,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 透明 +监听 ObjectAnimator.ofFloat
      */
-    private void ValueAnimator_code_alpha_2() {
+    private void ObjectAnimator_code_alpha_2() {
         ObjectAnimator animator = ObjectAnimator.ofFloat(img, "alpha", 1f, 0.1f, 1f, 0.5f, 1f);
         animator.setDuration(4000);// 动画持续时间
         animator.start();
@@ -505,7 +530,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 综合： ObjectAnimator.ofFloat
      */
-    private void ValueAnimator_code_all_2() {
+    private void ObjectAnimator_code_all_2() {
         ObjectAnimator animatorX = ObjectAnimator.ofFloat(img, "translationX", 0f, 250f);
         ObjectAnimator animatorY = ObjectAnimator.ofFloat(img, "translationY", 0f, 250f);
         ObjectAnimator animatorAlpha = ObjectAnimator.ofFloat(img, "alpha", 1f, 0.2f, 0.4f, 1f);
@@ -566,7 +591,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 上下移动+监听 ObjectAnimator.ofFloat
      */
-    private void ValueAnimator_code_trans_3() {
+    private void ObjectAnimator_code_trans_3() {
         //获取对象方式不是new,而是ofFloat
         ObjectAnimator animator = ObjectAnimator.ofFloat(img, "translationY", 0, 250f);
 //      设置移动时间
@@ -594,7 +619,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 逆时针+监听 ObjectAnimator.ofFloat
      */
-    private void ValueAnimator_code_rotate_3() {
+    private void ObjectAnimator_code_rotate_3() {
         ObjectAnimator animator = ObjectAnimator.ofFloat(img, "rotation", 0f, -360f);
         animator.setDuration(300);
         animator.setRepeatCount(5);
@@ -616,7 +641,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 缩小+监听 ObjectAnimator.ofFloat
      */
-    private void ValueAnimator_code_scale_3() {
+    private void ObjectAnimator_code_scale_3() {
         if (type == 0) {
             type++;
             ObjectAnimator animatorX = ObjectAnimator.ofFloat(img, "scaleX", 3f, 2f);
@@ -670,7 +695,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 综合样式 ObjectAnimator.ofFloat
      */
-    private void ValueAnimator_code_all_3() {
+    private void ObjectAnimator_code_all_3() {
         ObjectAnimator animatorX = ObjectAnimator.ofFloat(img, "translationX", 250f, 0f);
         ObjectAnimator animatorY = ObjectAnimator.ofFloat(img, "translationY", 250f, 0f);
         ObjectAnimator animatorAlpha = ObjectAnimator.ofFloat(img, "alpha", 1f, 0.8f, 0.2f, 1f);
@@ -724,13 +749,13 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     }
 
     //==========================================================================================
-    //============================PropertyValuesHolder+ObjectAnimator实现================================
+    //============================PropertyValuesHolder+ObjectAnimator+ofFloat code实现================================
     //==========================================================================================
 
     /**
      * 移动 PropertyValuesHolder+ObjectAnimator
      */
-    private void ValueAnimator_code_trans_4() {
+    private void PropertyValuesHolder_code_trans_4() {
         if (type == 0) {
             PropertyValuesHolder holder = PropertyValuesHolder.ofFloat("translationX", 0, 250f);
             ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(img, holder);
@@ -787,7 +812,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 旋转 PropertyValuesHolder+ObjectAnimator
      */
-    private void ValueAnimator_code_rotate_4() {
+    private void PropertyValuesHolder_code_rotate_4() {
         if (type == 0) {
             PropertyValuesHolder holder = PropertyValuesHolder.ofFloat("rotation", 0, 360f);
             ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(img, holder);
@@ -847,7 +872,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
      * 缩放 PropertyValuesHolder+ObjectAnimator
      */
 
-    private void ValueAnimator_code_scale_4() {
+    private void PropertyValuesHolder_code_scale_4() {
 
         PropertyValuesHolder holderX = PropertyValuesHolder.ofFloat("scaleX", 1f, 3f);
         PropertyValuesHolder holderY = PropertyValuesHolder.ofFloat("scaleY", 1f, 3f);
@@ -874,7 +899,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 透明 +监听  PropertyValuesHolder+ObjectAnimator
      */
-    private void ValueAnimator_code_alpha_4() {
+    private void PropertyValuesHolder_code_alpha_4() {
         PropertyValuesHolder holder = PropertyValuesHolder.ofFloat("alpha", 1f, 0f, 0.2f, 0.8f, 0f, 1f);
 
         ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(img, holder, holder);
@@ -886,7 +911,7 @@ public class PtBaseDemoAct extends AppCompatActivity implements View.OnClickList
     /**
      * 综合：PropertyValuesHolder+ObjectAnimator
      */
-    private void ValueAnimator_code_all_4() {
+    private void PropertyValuesHolder_code_all_4() {
         PropertyValuesHolder holdertranslationX = PropertyValuesHolder.ofFloat("translationX", 0, 250f, 0f);
         PropertyValuesHolder holdertranslationY = PropertyValuesHolder.ofFloat("translationY", 0, -250f, 0f);
         PropertyValuesHolder holderRotation = PropertyValuesHolder.ofFloat("rotation", 0, 360f);
