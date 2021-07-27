@@ -1,7 +1,7 @@
 package lib.anim.transition.demo3;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.transition.Explode;
 import android.transition.Transition;
 import android.transition.TransitionInflater;

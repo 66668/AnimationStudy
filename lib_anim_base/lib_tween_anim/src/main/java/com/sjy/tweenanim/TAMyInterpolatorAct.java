@@ -1,8 +1,9 @@
 package com.sjy.tweenanim;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
@@ -100,7 +101,7 @@ public class TAMyInterpolatorAct extends AppCompatActivity implements View.OnCli
     Button btn_interpolator_o;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_interpolator_my);
         initMyView();

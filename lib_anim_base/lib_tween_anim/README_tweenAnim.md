@@ -681,7 +681,7 @@ code方式和自定义方式相同，只是传默认 new的对象：
 
 在ViewGroup的xml中绑定LayoutAnimationController:
     
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layoutAnimation="@anim/demo_layout_anim"

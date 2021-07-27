@@ -2,10 +2,11 @@ package com.sjy.tweenanim;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -93,6 +94,7 @@ public class TAControllerAct extends AppCompatActivity implements View.OnClickLi
     /**
      * xml方式
      */
+    @SuppressLint("WrongConstant")
     private void myLayoutAnimationController1() {
         //清除之前动画没执行完的影响
         Animation oldAnimation = recyclerView.getAnimation();
@@ -119,6 +121,7 @@ public class TAControllerAct extends AppCompatActivity implements View.OnClickLi
     /**
      * xml+code方式
      */
+    @SuppressLint("WrongConstant")
     private void myLayoutAnimationController2() {
         //清除之前动画没执行完的影响
         Animation oldAnimation = recyclerView.getAnimation();

@@ -1,8 +1,10 @@
 package com.sjy.tweenanim;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -80,7 +82,7 @@ public class TAInterpolatorxmlAct extends AppCompatActivity implements View.OnCl
     Button btn_interpolator_o;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_interpolator_xml);
         initMyView();

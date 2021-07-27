@@ -1,8 +1,10 @@
 package lib.base.sjy.adpater;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,18 +40,18 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyHolder> {
         return holder;
     }
 
+    @SuppressLint("RecyclerView")
     @Override
-    public void onBindViewHolder(@NonNull MyHolder myHolder, final int i) {
-        final String str = datas.get(i);
-        myHolder.tv_name.setText(str);
-        myHolder.tv_name.setOnClickListener(new View.OnClickListener() {
+    public void onBindViewHolder(@NonNull MyHolder holder, int position) {
+        final String str = datas.get(position);
+        holder.tv_name.setText(str);
+        holder.tv_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemClick(str, i);
+                listener.onItemClick(str, position);
             }
         });
     }
-
 
     @Override
     public int getItemCount() {

@@ -1,6 +1,7 @@
 package lib.anim.transition.demo5;
 
-import android.support.annotation.ColorRes;
+
+import androidx.annotation.ColorRes;
 
 import java.io.Serializable;
 
