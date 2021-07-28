@@ -10,6 +10,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * 帧动画
+ */
 public class FrameAnimActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView img;
@@ -29,27 +32,18 @@ public class FrameAnimActivity extends AppCompatActivity implements View.OnClick
         btn_type1.setOnClickListener(this);
         btn_start.setOnClickListener(this);
         btn_end.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View v) {
         if (v == btn_type1) {
             Toast.makeText(this, "方式" + type, Toast.LENGTH_SHORT).show();
-            if (type == 1) {
-                animationDrawable = getAnimationDrawable(type);
-                type = 2;
-            } else if (type == 2) {
-                animationDrawable = getAnimationDrawable(type);
-                type = 3;
-            } else if (type == 3) {
-                animationDrawable = getAnimationDrawable(type);
-                type = 4;
-            } else {
-                animationDrawable = getAnimationDrawable(type);
-                type = 2;
+            animationDrawable = getAnimationDrawable(type);
+            if(type>=4){
+                type =1;
+            }else{
+                type++;
             }
-
         } else if (v == btn_start) {
             if (animationDrawable == null) {
                 animationDrawable = getAnimationDrawable(type);
@@ -90,16 +84,13 @@ public class FrameAnimActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-
     /**
-     * xml动画获取方式3
+     * xml动画获取方式1
      *
      * @return
      */
-    private AnimationDrawable setType3() {
-        img.setBackgroundResource(R.drawable.run);
-        AnimationDrawable animationDrawable = (AnimationDrawable) img.getBackground();
-        return animationDrawable;
+    private AnimationDrawable setType1() {
+        return (AnimationDrawable) img.getBackground();
     }
 
     /**
@@ -114,12 +105,14 @@ public class FrameAnimActivity extends AppCompatActivity implements View.OnClick
     }
 
     /**
-     * xml动画获取方式1
+     * xml动画获取方式3
      *
      * @return
      */
-    private AnimationDrawable setType1() {
-        return (AnimationDrawable) img.getBackground();
+    private AnimationDrawable setType3() {
+        img.setBackgroundResource(R.drawable.run);
+        AnimationDrawable animationDrawable = (AnimationDrawable) img.getBackground();
+        return animationDrawable;
     }
 
     /**
