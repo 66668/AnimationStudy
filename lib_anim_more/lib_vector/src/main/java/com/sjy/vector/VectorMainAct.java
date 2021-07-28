@@ -1,4 +1,4 @@
-package com.sjy.lib_vector;
+package com.sjy.vector;
 
 import android.app.Activity;
 

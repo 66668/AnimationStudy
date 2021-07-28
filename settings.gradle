@@ -10,3 +10,4 @@ include 'lib_anim_more:lib_circular_reveal'//揭露动画
 include ':lib_anim_more:lib_view_state_changes'//视图状态动画
 include ':lib_anim_more:lib_transition'//转场动画
 include ':lib_anim_more:lib_vector'
+include ':lib_anim_more:lib_svg'//svg矢量动画

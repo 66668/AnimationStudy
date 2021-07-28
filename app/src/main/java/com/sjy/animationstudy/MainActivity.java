@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.sjy.tweenanim.TAMainAct;
 
 import java.util.ArrayList;
@@ -21,10 +20,10 @@ import lib.property.anim.PTMainAct;
 import lib.ripple.effect.REMainActivity;
 import lib.sjy.frame.FrameAnimActivity;
 import lib.view.state.changes.VSCMainAct;
+import lib.sjy.svgtest.SVGMainAct;
 
 public class MainActivity extends BaseAct {
     //-----------------------------控件--------------------------------
-    //RecyclerView-v7
     private RecyclerView recyclerView;
     private ViewPropertyAnimator animator;
     //-------------------------------------------------------------
@@ -91,6 +90,8 @@ public class MainActivity extends BaseAct {
                         startToTrans();
                         break;
                     case 7:
+                        startToSvg();
+                        break;
                     case 8:
                         Toast.makeText(MainActivity.this, str + pos, Toast.LENGTH_SHORT).show();
                         break;
@@ -131,6 +132,11 @@ public class MainActivity extends BaseAct {
 
     private void startToTrans() {
         Intent intent = new Intent(MainActivity.this, TransMainAct.class);
+        startActivity(intent);
+    }
+
+    private void startToSvg() {
+        Intent intent = new Intent(MainActivity.this, SVGMainAct.class);
         startActivity(intent);
     }
 

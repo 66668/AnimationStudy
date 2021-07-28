@@ -32,4 +32,5 @@ dependencies {
     implementation project(path: ':lib_anim_more:lib_circular_reveal')
     implementation project(path: ':lib_anim_more:lib_view_state_changes')
     implementation project(path: ':lib_anim_more:lib_transition')
+    implementation project(path: ':lib_anim_more:lib_svg')
 }
