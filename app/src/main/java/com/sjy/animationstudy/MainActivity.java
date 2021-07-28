@@ -2,6 +2,7 @@ package com.sjy.animationstudy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.ViewPropertyAnimator;
 import android.widget.Toast;
 
@@ -24,11 +25,12 @@ import lib.view.state.changes.VSCMainAct;
 public class MainActivity extends BaseAct {
     //-----------------------------控件--------------------------------
     //RecyclerView-v7
-   private RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private ViewPropertyAnimator animator;
     //-------------------------------------------------------------
     private List<String> data = new ArrayList<>();
     private MainAdapter adapter;
+    long mExitTime = System.currentTimeMillis();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class MainActivity extends BaseAct {
         data.add("05-揭露动画（Reveal Effect）");
         data.add("06-视图状态动画（View State Changes）");
         data.add("07-转场动画 & 共享元素（Activity 切换动画）");
+        data.add("08-SVG动画");
 //        data.add("08-矢量图动画（Vector 动画）");
 //        data.add("09-约束布局实现的关键帧动画（ConstraintSet 动画）");
         //
@@ -129,5 +132,19 @@ public class MainActivity extends BaseAct {
     private void startToTrans() {
         Intent intent = new Intent(MainActivity.this, TransMainAct.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                Toast.makeText(this, "想好再退，铁汁！！", Toast.LENGTH_LONG).show();
+                mExitTime = System.currentTimeMillis();
+            } else {
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

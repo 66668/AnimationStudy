@@ -20,6 +20,10 @@ public class SEFragment01 extends Fragment {
 
     private static final String EXTRA_SAMPLE = "sample";
 
+    public static SEFragment01 newInstance() {
+        SEFragment01 fragment = new SEFragment01();
+        return fragment;
+    }
     public static SEFragment01 newInstance(Sample sample) {
 
         Bundle args = new Bundle();
@@ -33,24 +37,24 @@ public class SEFragment01 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_01, container, false);
-        final Sample sample = (Sample) getArguments().getSerializable(EXTRA_SAMPLE);
-
-        final ImageView squareBlue = (ImageView) view.findViewById(R.id.img_01);
-        DrawableCompat.setTint(squareBlue.getDrawable(), sample.color);
-
-        view.findViewById(R.id.btn_01).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addNextFragment(sample, squareBlue, false);
-            }
-        });
-
-        view.findViewById(R.id.btn_02).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addNextFragment(sample, squareBlue, true);
-            }
-        });
+//        final Sample sample = (Sample) getArguments().getSerializable(EXTRA_SAMPLE);
+//
+//        final ImageView squareBlue = (ImageView) view.findViewById(R.id.img_01);
+//        DrawableCompat.setTint(squareBlue.getDrawable(), sample.color);
+//
+//        view.findViewById(R.id.btn_01).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                addNextFragment(sample, squareBlue, false);
+//            }
+//        });
+//
+//        view.findViewById(R.id.btn_02).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                addNextFragment(sample, squareBlue, true);
+//            }
+//        });
 
         return view;
     }
@@ -69,8 +73,8 @@ public class SEFragment01 extends Fragment {
         sharedElementFragment2.setAllowReturnTransitionOverlap(overlap);
         sharedElementFragment2.setSharedElementEnterTransition(changeBoundsTransition);
 
-        getFragmentManager().beginTransaction()
-                .replace(R.id.frameLayout, sharedElementFragment2)
+        getParentFragmentManager().beginTransaction()
+                .replace(R.id.fragment_layout, sharedElementFragment2)
                 .addToBackStack(null)
                 .addSharedElement(img, "img_01")
                 .commit();

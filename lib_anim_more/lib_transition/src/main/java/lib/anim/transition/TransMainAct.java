@@ -122,7 +122,8 @@ public class TransMainAct extends AppCompatActivity {
      * Act-Frag间共享元素
      */
     private void frgSharedElement() {
-        Intent intent = new Intent(TransMainAct.this, SEFragMainAct.class);
-        startActivity(intent);
+        Toast.makeText(TransMainAct.this, "未做", Toast.LENGTH_SHORT).show();
+//        Intent intent = new Intent(TransMainAct.this, SEFragMainAct.class);
+//        startActivity(intent);
     }
 }
