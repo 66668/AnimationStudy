@@ -37,6 +37,7 @@ public class TAxmlAct extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_xmldemo);
+        initMyView();
     }
 
     private void initMyView() {
@@ -63,7 +64,6 @@ public class TAxmlAct extends AppCompatActivity implements View.OnClickListener 
 
     }
 
-
     public void onClick(View view) {
         if (view == btn_translate) {
             translateUpDown();
@@ -85,42 +85,6 @@ public class TAxmlAct extends AppCompatActivity implements View.OnClickListener 
             demo1();
         }
     }
-
-    /**
-     * 示例1
-     */
-    private void demo1() {
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.ta_xml_demo);
-        //清除之前动画没执行完的影响
-        Animation oldAnimation = img.getAnimation();
-        if (oldAnimation != null) {
-            if (oldAnimation.hasStarted() || (!oldAnimation.hasEnded())) {
-                oldAnimation.cancel();
-                img.clearAnimation();
-            }
-        }
-        img.startAnimation(animation);
-
-        //移动监听
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-                Log.d("SJY", "onAnimationStart");
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                Log.d("SJY", "onAnimationEnd");
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-                Log.d("SJY", "onAnimationRepeat");
-
-            }
-        });
-    }
-
 
     /**
      * xml 上下平移
@@ -332,7 +296,7 @@ public class TAxmlAct extends AppCompatActivity implements View.OnClickListener 
     }
 
     /**
-     * 变透明
+     * 实体变透明
      */
     private void alphaTo1() {
         Animation alpha = AnimationUtils.loadAnimation(this, R.anim.ta_alpha_1);
@@ -393,6 +357,41 @@ public class TAxmlAct extends AppCompatActivity implements View.OnClickListener 
             @Override
             public void onAnimationRepeat(Animation animation) {
                 Log.d("SJY", "onAnimationRepeat");
+            }
+        });
+    }
+
+    /**
+     * 混合示例1
+     */
+    private void demo1() {
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.ta_xml_demo);
+        //清除之前动画没执行完的影响
+        Animation oldAnimation = img.getAnimation();
+        if (oldAnimation != null) {
+            if (oldAnimation.hasStarted() || (!oldAnimation.hasEnded())) {
+                oldAnimation.cancel();
+                img.clearAnimation();
+            }
+        }
+        img.startAnimation(animation);
+
+        //移动监听
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                Log.d("SJY", "onAnimationStart");
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                Log.d("SJY", "onAnimationEnd");
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+                Log.d("SJY", "onAnimationRepeat");
+
             }
         });
     }

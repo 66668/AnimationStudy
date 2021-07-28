@@ -15,7 +15,9 @@ import java.util.List;
 
 import lib.base.sjy.adpater.MainAdapter;
 
-
+/**
+ * 补间动画
+ */
 public class TAMainAct extends AppCompatActivity {
 
     //-----------------------------控件--------------------------------
@@ -34,15 +36,15 @@ public class TAMainAct extends AppCompatActivity {
         setContentView(R.layout.act_main);
         recyclerView = findViewById(R.id.recyclerView);
         tv_title = findViewById(R.id.tv_titile);
-        tv_title.setText("Tween Animation示例介绍");
+        tv_title.setText("Tween Animation-补间动画");
         initView();
     }
 
     private void initView() {
         data = new ArrayList<>();
         //
-        data.add("xml方式1：正常控件");
-        data.add("code方式1：正常控件");
+        data.add("正常控件:xml样式");
+        data.add("正常控件:code样式");
         data.add("插值器1：xml详解");
         data.add("插值器2：code详解");
         data.add("插值器3：自定义详解");

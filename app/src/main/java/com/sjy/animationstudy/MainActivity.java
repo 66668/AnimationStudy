@@ -41,8 +41,8 @@ public class MainActivity extends BaseAct {
     private void initView() {
         data = new ArrayList<>();
         //
-        data.add("01-补间动画(Tween Animation)");
-        data.add("02-帧动画（Frame/Drawable Animation）");
+        data.add("01-帧动画（Frame/Drawable Animation）");
+        data.add("02-补间动画(Tween Animation)");
         data.add("03-属性动画(Propety Animation)");
         data.add("04-触摸反馈动画（Ripple Effect）");
         data.add("05-揭露动画（Reveal Effect）");
@@ -67,13 +67,13 @@ public class MainActivity extends BaseAct {
 
                 switch (pos) {
                     case 0:
-                        startToVA();
+                        startToFrameAnim();
                         break;
                     case 1:
-                        startToFrame();
+                        startToTweenAnim();
                         break;
                     case 2:
-                        startToProperty();
+                        startToPropertyAmin();
                         break;
                     case 3:
                         startToRippleEffect();
@@ -96,17 +96,17 @@ public class MainActivity extends BaseAct {
         });
     }
 
-    private void startToVA() {
-        Intent intent = new Intent(MainActivity.this, TAMainAct.class);
-        startActivity(intent);
-    }
-
-    private void startToFrame() {
+    private void startToFrameAnim() {
         Intent intent = new Intent(MainActivity.this, FrameAnimActivity.class);
         startActivity(intent);
     }
 
-    private void startToProperty() {
+    private void startToTweenAnim() {
+        Intent intent = new Intent(MainActivity.this, TAMainAct.class);
+        startActivity(intent);
+    }
+
+    private void startToPropertyAmin() {
         Intent intent = new Intent(MainActivity.this, PTMainAct.class);
         startActivity(intent);
     }
