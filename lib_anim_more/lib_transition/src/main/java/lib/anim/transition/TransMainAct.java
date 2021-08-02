@@ -16,6 +16,7 @@ import lib.anim.transition.demo2.Demo2MainAct;
 import lib.anim.transition.demo3.Demo3MainAct;
 import lib.anim.transition.demo4.SEDemo4Act1;
 import lib.anim.transition.demo5.SEFragMainAct;
+import lib.anim.transition.demo6.BaseFragMainAct;
 import lib.base.sjy.adpater.MainAdapter;
 
 /**
@@ -49,6 +50,7 @@ public class TransMainAct extends AppCompatActivity {
         data.add("Act切换动画-方式3:android.transition包支持");
         data.add("共享元素（sharedElement）--Act示例");
         data.add("共享元素（sharedElement）--Fragment示例");
+        data.add("基础Fragment示例");
         //
         adapter = new MainAdapter(this);
         adapter.setDatas(data);
@@ -81,6 +83,8 @@ public class TransMainAct extends AppCompatActivity {
                         frgSharedElement();
                         break;
                     case 5:
+                        baseFragment();
+                        break;
                     case 6:
                     case 7:
                     case 8:
@@ -122,8 +126,16 @@ public class TransMainAct extends AppCompatActivity {
      * Act-Frag间共享元素
      */
     private void frgSharedElement() {
-        Toast.makeText(TransMainAct.this, "未做", Toast.LENGTH_SHORT).show();
-//        Intent intent = new Intent(TransMainAct.this, SEFragMainAct.class);
-//        startActivity(intent);
+//        Toast.makeText(TransMainAct.this, "未做", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(TransMainAct.this, SEFragMainAct.class);
+        startActivity(intent);
+    }
+    /**
+     * Act-Frag间共享元素
+     */
+    private void baseFragment() {
+//        Toast.makeText(TransMainAct.this, "未做", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(TransMainAct.this, BaseFragMainAct.class);
+        startActivity(intent);
     }
 }

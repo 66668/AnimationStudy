@@ -74,7 +74,13 @@
             android:theme="@style/sharedElement_Style_01" />
 
 
-        <activity android:name=".demo5.SEFragMainAct" />
+        <activity
+            android:name=".demo5.SEFragMainAct"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".demo6.BaseFragMainAct"
+            android:screenOrientation="portrait" />
 
     </application>
 </manifest>

@@ -10,12 +10,10 @@
         android:gravity="center"
         android:text="转场动画 fragment demo" />
 
-    <LinearLayout
+    <fragment
         android:id="@+id/layout_frag"
+        android:name="lib.anim.transition.demo6.BaseFrag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:baselineAligned="false"
-        android:orientation="vertical">
-
-    </LinearLayout>
+        android:baselineAligned="false"/>
 </LinearLayout>
